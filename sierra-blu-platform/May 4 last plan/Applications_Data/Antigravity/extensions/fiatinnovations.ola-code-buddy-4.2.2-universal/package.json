@@ -1,0 +1,1358 @@
+{
+	"name": "ola-code-buddy",
+	"displayName": "%displayName%",
+	"author": {
+		"name": "Oyinlola Olasunkanmi Raymond",
+		"email": "oyinolasunkanmi@gmail.com",
+		"url": "https://github.com/olasunkanmi-SE/codebuddy"
+	},
+	"publisher": "fiatinnovations",
+	"description": "%description%",
+	"version": "4.2.2",
+	"engines": {
+		"vscode": "^1.78.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/olasunkanmi-SE/codebuddy"
+	},
+	"icon": "images/codebuddylogo.png",
+	"categories": [
+		"Programming Languages",
+		"Debuggers",
+		"Linters",
+		"AI",
+		"Chat",
+		"Machine Learning",
+		"Education",
+		"Snippets"
+	],
+	"activationEvents": [
+		"onLanguage:javascript",
+		"onLanguage:typescript"
+	],
+	"keywords": [
+		"ai",
+		"autonomous agent",
+		"software engineer",
+		"devin",
+		"cursor",
+		"trae",
+		"multi-agent",
+		"mcp",
+		"code assistant",
+		"code review",
+		"code optimization",
+		"developer tools",
+		"productivity"
+	],
+	"homepage": "https://github.com/olasunkanmi-SE/codebuddy#readme",
+	"bugs": {
+		"url": "https://github.com/olasunkanmi-SE/codebuddy/issues"
+	},
+	"l10n": "./l10n",
+	"main": "./dist/extension.js",
+	"contributes": {
+		"views": {
+			"codeBuddy-view-container": [
+				{
+					"icon": "images/codebuddylogo.png",
+					"type": "webview",
+					"id": "chatView",
+					"name": "%view.chat.name%"
+				}
+			]
+		},
+		"menus": {
+			"editor/title": [
+				{
+					"command": "codebuddy.applyChange",
+					"group": "navigation",
+					"when": "resourceScheme == codebuddy-diff"
+				},
+				{
+					"command": "codebuddy.rejectChange",
+					"group": "navigation",
+					"when": "resourceScheme == codebuddy-diff"
+				}
+			],
+			"editor/context": [
+				{
+					"command": "codebuddy.triggerDailyStandup",
+					"group": "CodeBuddy",
+					"when": "editorFocus"
+				},
+				{
+					"command": "codebuddy.triggerCodeHealth",
+					"group": "CodeBuddy",
+					"when": "editorFocus"
+				},
+				{
+					"when": "editorHasSelection",
+					"command": "CodeBuddy.commentCode",
+					"group": "CodeBuddy"
+				},
+				{
+					"when": "editorHasSelection",
+					"command": "CodeBuddy.reviewCode",
+					"group": "CodeBuddy"
+				},
+				{
+					"when": "editorHasSelection",
+					"command": "CodeBuddy.codeRefactor",
+					"group": "CodeBuddy"
+				},
+				{
+					"when": "editorHasSelection",
+					"command": "CodeBuddy.codeOptimize",
+					"group": "CodeBuddy"
+				},
+				{
+					"when": "editorHasSelection",
+					"command": "CodeBuddy.explain",
+					"group": "CodeBuddy"
+				},
+				{
+					"command": "CodeBuddy.generateCommitMessage",
+					"group": "CodeBuddy"
+				},
+				{
+					"command": "CodeBuddy.inLineChat",
+					"group": "CodeBuddy"
+				},
+				{
+					"when": "editorHasSelection",
+					"command": "CodeBuddy.interviewMe",
+					"group": "CodeBuddy"
+				},
+				{
+					"when": "editorHasSelection",
+					"command": "CodeBuddy.generateMermaidDiagram",
+					"group": "CodeBuddy"
+				},
+				{
+					"command": "CodeBuddy.codebaseAnalysis",
+					"group": "CodeBuddy"
+				},
+				{
+					"command": "CodeBuddy.reviewPR",
+					"group": "CodeBuddy"
+				},
+				{
+					"command": "CodeBuddy.rules.open",
+					"group": "CodeBuddy@9"
+				},
+				{
+					"command": "CodeBuddy.rules.init",
+					"group": "CodeBuddy@9"
+				},
+				{
+					"command": "CodeBuddy.openSelectionInReader",
+					"group": "CodeBuddy@10",
+					"when": "editorHasSelection"
+				}
+			],
+			"commandPalette": [
+				{
+					"command": "codebuddy.openSecurityConfig",
+					"when": "workspaceFolderCount != 0"
+				},
+				{
+					"command": "codebuddy.securityDiagnostics",
+					"when": "workspaceFolderCount != 0"
+				},
+				{
+					"command": "codebuddy.runDoctor",
+					"when": "workspaceFolderCount != 0"
+				},
+				{
+					"command": "codebuddy.showOnboarding",
+					"when": "workspaceFolderCount != 0"
+				},
+				{
+					"command": "codebuddy.doctorAutoFix",
+					"when": "workspaceFolderCount != 0"
+				},
+				{
+					"command": "codebuddy.switchPermissionProfile",
+					"when": "workspaceFolderCount != 0"
+				},
+				{
+					"command": "codebuddy.switchAccessMode",
+					"when": "workspaceFolderCount != 0"
+				},
+				{
+					"command": "codebuddy.accessControlAudit",
+					"when": "workspaceFolderCount != 0"
+				},
+				{
+					"command": "codebuddy.clearWorkspaceContext",
+					"when": "workspaceFolderCount != 0"
+				}
+			]
+		},
+		"commands": [
+			{
+				"command": "codebuddy.concurrencyQueue.showStatus",
+				"title": "%commands.concurrencyQueueShowStatus%",
+				"category": "CodeBuddy"
+			},
+			{
+				"command": "codebuddy.concurrencyQueue.cancelAll",
+				"title": "%commands.concurrencyQueueCancelAll%",
+				"category": "CodeBuddy"
+			},
+			{
+				"command": "codebuddy.indexWorkspace",
+				"title": "%commands.indexWorkspace%",
+				"category": "CodeBuddy"
+			},
+			{
+				"command": "codebuddy.initIgnoreFile",
+				"title": "Init .codebuddyignore",
+				"category": "CodeBuddy"
+			},
+			{
+				"command": "CodeBuddy.commentCode",
+				"title": "%commands.commentCode%",
+				"category": "CodeBuddy"
+			},
+			{
+				"command": "CodeBuddy.reviewCode",
+				"title": "%commands.reviewCode%",
+				"category": "CodeBuddy"
+			},
+			{
+				"command": "CodeBuddy.codeRefactor",
+				"title": "%commands.codeRefactor%",
+				"category": "CodeBuddy"
+			},
+			{
+				"command": "CodeBuddy.codeOptimize",
+				"title": "%commands.codeOptimize%",
+				"category": "CodeBuddy"
+			},
+			{
+				"command": "CodeBuddy.explain",
+				"title": "%commands.explain%",
+				"category": "CodeBuddy"
+			},
+			{
+				"command": "CodeBuddy.generateCommitMessage",
+				"title": "%commands.generateCommitMessage%",
+				"category": "CodeBuddy"
+			},
+			{
+				"command": "CodeBuddy.inLineChat",
+				"title": "%commands.inLineChat%",
+				"category": "CodeBuddy"
+			},
+			{
+				"command": "CodeBuddy.interviewMe",
+				"title": "%commands.interviewMe%",
+				"category": "CodeBuddy"
+			},
+			{
+				"command": "CodeBuddy.generateMermaidDiagram",
+				"title": "%commands.generateMermaidDiagram%",
+				"category": "CodeBuddy"
+			},
+			{
+				"command": "CodeBuddy.codebaseAnalysis",
+				"title": "%commands.codebaseAnalysis%",
+				"category": "CodeBuddy"
+			},
+			{
+				"command": "CodeBuddy.reviewPR",
+				"title": "%commands.reviewPR%",
+				"category": "CodeBuddy"
+			},
+			{
+				"command": "codebuddy.triggerDailyStandup",
+				"title": "%commands.triggerDailyStandup%",
+				"category": "CodeBuddy"
+			},
+			{
+				"command": "codebuddy.triggerCodeHealth",
+				"title": "%commands.triggerCodeHealth%",
+				"category": "CodeBuddy"
+			},
+			{
+				"command": "codebuddy.triggerDependencyCheck",
+				"title": "%commands.triggerDependencyCheck%",
+				"category": "CodeBuddy"
+			},
+			{
+				"command": "codebuddy.triggerGitWatchdog",
+				"title": "%commands.triggerGitWatchdog%",
+				"category": "CodeBuddy"
+			},
+			{
+				"command": "codebuddy.triggerEndOfDaySummary",
+				"title": "%commands.triggerEndOfDaySummary%",
+				"category": "CodeBuddy"
+			},
+			{
+				"command": "codebuddy.createBranchFromJira",
+				"title": "%commands.createBranchFromJira%",
+				"category": "CodeBuddy"
+			},
+			{
+				"command": "codebuddy.createBranchFromGitLab",
+				"title": "%commands.createBranchFromGitLab%",
+				"category": "CodeBuddy"
+			},
+			{
+				"command": "codebuddy.openSecurityConfig",
+				"title": "Open External Security Config",
+				"category": "CodeBuddy"
+			},
+			{
+				"command": "codebuddy.securityDiagnostics",
+				"title": "Run Security Diagnostics",
+				"category": "CodeBuddy"
+			},
+			{
+				"command": "codebuddy.runDoctor",
+				"title": "Run Doctor",
+				"category": "CodeBuddy"
+			},
+			{
+				"command": "codebuddy.showOnboarding",
+				"title": "Show Onboarding Wizard",
+				"category": "CodeBuddy"
+			},
+			{
+				"command": "codebuddy.doctorAutoFix",
+				"title": "Doctor Auto-Fix",
+				"category": "CodeBuddy"
+			},
+			{
+				"command": "codebuddy.credentialProxyAudit",
+				"title": "Credential Proxy Audit Log",
+				"category": "CodeBuddy"
+			},
+			{
+				"command": "codebuddy.switchPermissionProfile",
+				"title": "Switch Permission Profile",
+				"category": "CodeBuddy"
+			},
+			{
+				"command": "codebuddy.switchAccessMode",
+				"title": "Switch Access Control Mode",
+				"category": "CodeBuddy"
+			},
+			{
+				"command": "codebuddy.accessControlAudit",
+				"title": "Access Control Audit Log",
+				"category": "CodeBuddy"
+			},
+			{
+				"command": "codebuddy.clearWorkspaceContext",
+				"title": "Clear Workspace Context",
+				"category": "CodeBuddy",
+				"icon": "$(trash)"
+			},
+			{
+				"command": "CodeBuddy.rules.open",
+				"title": "%commands.rulesOpen%",
+				"category": "CodeBuddy"
+			},
+			{
+				"command": "CodeBuddy.rules.init",
+				"title": "%commands.rulesInit%",
+				"category": "CodeBuddy"
+			},
+			{
+				"command": "CodeBuddy.rules.reload",
+				"title": "%commands.rulesReload%",
+				"category": "CodeBuddy"
+			},
+			{
+				"command": "codebuddy.completion.toggle",
+				"title": "%commands.completionToggle%",
+				"category": "CodeBuddy"
+			},
+			{
+				"command": "codebuddy.completion.openSettings",
+				"title": "%commands.completionOpenSettings%",
+				"category": "CodeBuddy"
+			},
+			{
+				"command": "codebuddy.applyChange",
+				"title": "%commands.applyChange%",
+				"icon": "$(check)"
+			},
+			{
+				"command": "codebuddy.rejectChange",
+				"title": "%commands.rejectChange%",
+				"icon": "$(close)"
+			},
+			{
+				"command": "codebuddy.reviewComposerSession",
+				"title": "%commands.reviewComposerSession%",
+				"category": "CodeBuddy"
+			},
+			{
+				"command": "codebuddy.clearInlineReviewComments",
+				"title": "%commands.clearInlineReviewComments%",
+				"category": "CodeBuddy"
+			},
+			{
+				"command": "codebuddy.applyComposerSession",
+				"title": "%commands.applyComposerSession%",
+				"category": "CodeBuddy"
+			},
+			{
+				"command": "codebuddy.rejectComposerSession",
+				"title": "%commands.rejectComposerSession%",
+				"category": "CodeBuddy"
+			},
+			{
+				"command": "CodeBuddy.openInReader",
+				"title": "%commands.openInReader%",
+				"category": "CodeBuddy"
+			},
+			{
+				"command": "CodeBuddy.openSelectionInReader",
+				"title": "%commands.openSelectionInReader%",
+				"category": "CodeBuddy"
+			},
+			{
+				"command": "CodeBuddy.openLastBrowsedInReader",
+				"title": "%commands.openLastBrowsedInReader%",
+				"category": "CodeBuddy"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "CodeBuddy.commentCode",
+				"key": "ctrl+shift+j",
+				"mac": "cmd+shift+j",
+				"when": "editorHasSelection"
+			},
+			{
+				"command": "CodeBuddy.reviewCode",
+				"key": "ctrl+shift+r",
+				"mac": "cmd+shift+r",
+				"when": "editorHasSelection"
+			},
+			{
+				"command": "CodeBuddy.codeRefactor",
+				"key": "ctrl+shift+;",
+				"mac": "cmd+shift+;",
+				"when": "editorHasSelection"
+			},
+			{
+				"command": "CodeBuddy.codeOptimize",
+				"key": "ctrl+shift+0",
+				"mac": "cmd+shift+0",
+				"when": "editorHasSelection"
+			},
+			{
+				"command": "CodeBuddy.explain",
+				"key": "ctrl+shift+1",
+				"mac": "cmd+shift+1",
+				"when": "editorHasSelection"
+			},
+			{
+				"command": "CodeBuddy.generateCommitMessage",
+				"key": "ctrl+shift+2",
+				"mac": "cmd+shift+2"
+			},
+			{
+				"command": "CodeBuddy.inLineChat",
+				"key": "ctrl+shift+8",
+				"mac": "cmd+shift+8"
+			},
+			{
+				"command": "CodeBuddy.generateMermaidDiagram",
+				"key": "ctrl+shift+7",
+				"mac": "cmd+shift+7",
+				"when": "editorHasSelection"
+			},
+			{
+				"command": "CodeBuddy.codebaseAnalysis",
+				"key": "ctrl+shift+6",
+				"mac": "cmd+shift+6"
+			},
+			{
+				"command": "CodeBuddy.rules.open",
+				"key": "ctrl+shift+9",
+				"mac": "cmd+shift+9"
+			}
+		],
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "codeBuddy-view-container",
+					"title": "CodeBuddy",
+					"icon": "images/codebuddylogo.svg"
+				}
+			]
+		},
+		"jsonValidation": [
+			{
+				"fileMatch": ".codebuddy/access.json",
+				"url": "./schemas/access-v1.json"
+			}
+		],
+		"configuration": [
+			{
+				"title": "CodeBuddy",
+				"properties": {
+					"generativeAi.option": {
+						"type": "string",
+						"enum": [
+							"Gemini",
+							"Groq",
+							"Anthropic",
+							"XGrok",
+							"Deepseek",
+							"OpenAI",
+							"Qwen",
+							"GLM",
+							"Local"
+						],
+						"default": "Groq",
+						"description": "%config.selectModel%"
+					},
+					"tavily.apiKey": {
+						"type": [
+							"string",
+							"null"
+						],
+						"default": "apiKey",
+						"markdownDescription": "%config.tavilyApiKey%"
+					},
+					"google.gemini.apiKeys": {
+						"type": [
+							"string",
+							"null"
+						],
+						"default": "apiKey",
+						"markdownDescription": "%config.geminiApiKey%"
+					},
+					"google.gemini.model": {
+						"type": [
+							"string",
+							"null"
+						],
+						"default": "gemini-2.5-pro",
+						"markdownDescription": "%config.geminiModel%"
+					},
+					"groq.llama3.apiKey": {
+						"type": [
+							"string",
+							"null"
+						],
+						"default": "apiKey",
+						"markdownDescription": "%config.groqApiKey%"
+					},
+					"groq.llama3.model": {
+						"type": [
+							"string",
+							"null"
+						],
+						"default": "llama-3.1-70b-versatile",
+						"markdownDescription": "%config.groqModel%"
+					},
+					"anthropic.model": {
+						"type": [
+							"string",
+							"null"
+						],
+						"default": "claude-sonnet-4-5",
+						"markdownDescription": "%config.anthropicModel%"
+					},
+					"anthropic.apiKey": {
+						"type": [
+							"string",
+							"null"
+						],
+						"default": "apiKey",
+						"markdownDescription": "%config.anthropicApiKey%"
+					},
+					"deepseek.model": {
+						"type": [
+							"string",
+							"null"
+						],
+						"default": "deepseek-chat",
+						"markdownDescription": "%config.deepseekModel%"
+					},
+					"deepseek.apiKey": {
+						"type": [
+							"string",
+							"null"
+						],
+						"default": "apiKey",
+						"markdownDescription": "%config.deepseekApiKey%"
+					},
+					"qwen.model": {
+						"type": [
+							"string",
+							"null"
+						],
+						"default": "qwen-max",
+						"markdownDescription": "%config.qwenModel%"
+					},
+					"qwen.apiKey": {
+						"type": [
+							"string",
+							"null"
+						],
+						"default": "apiKey",
+						"markdownDescription": "%config.qwenApiKey%"
+					},
+					"glm.model": {
+						"type": [
+							"string",
+							"null"
+						],
+						"default": "glm-4",
+						"markdownDescription": "%config.glmModel%"
+					},
+					"glm.apiKey": {
+						"type": [
+							"string",
+							"null"
+						],
+						"default": "apiKey",
+						"markdownDescription": "%config.glmApiKey%"
+					},
+					"openai.model": {
+						"type": [
+							"string",
+							"null"
+						],
+						"default": "gpt-4o",
+						"markdownDescription": "%config.openaiModel%"
+					},
+					"openai.apiKey": {
+						"type": [
+							"string",
+							"null"
+						],
+						"default": "apiKey",
+						"markdownDescription": "%config.openaiApiKey%"
+					},
+					"local.model": {
+						"type": [
+							"string",
+							"null"
+						],
+						"default": "qwen2.5-coder",
+						"markdownDescription": "%config.localModel%"
+					},
+					"local.baseUrl": {
+						"type": [
+							"string",
+							"null"
+						],
+						"default": "http://localhost:11434/v1",
+						"markdownDescription": "%config.localBaseUrl%"
+					},
+					"local.apiKey": {
+						"type": [
+							"string",
+							"null"
+						],
+						"default": "not-needed",
+						"markdownDescription": "%config.localApiKey%"
+					},
+					"font.family": {
+						"type": "string",
+						"enum": [
+							"Montserrat",
+							"SF Mono",
+							"Space Mono",
+							"Fira Code",
+							"Source Code Pro",
+							"JetBrains Mono",
+							"Roboto Mono",
+							"Ubuntu Mono",
+							"IBM Plex Mono",
+							"Inconsolata"
+						],
+						"default": "JetBrains Mono",
+						"description": "%config.fontFamily%"
+					},
+					"chatview.theme": {
+						"type": "string",
+						"enum": [
+							"Atom One Dark",
+							"Atom One Dark Reasonable",
+							"Code Pen",
+							"felipec",
+							"github dark",
+							"ir black",
+							"night owl",
+							"stackoverflow",
+							"tokyo night"
+						],
+						"default": "Atom One Dark",
+						"description": "%config.chatviewTheme%"
+					},
+					"chatview.font.size": {
+						"type": [
+							"string",
+							"number"
+						],
+						"default": 16,
+						"description": "%config.fontSize%"
+					},
+					"codebuddy.enableStreaming": {
+						"type": "boolean",
+						"default": true,
+						"description": "%config.enableStreaming%"
+					},
+					"codebuddy.compactMode": {
+						"type": "boolean",
+						"default": false,
+						"description": "%config.compactMode%"
+					},
+					"codebuddy.credentialProxy.enabled": {
+						"type": "boolean",
+						"default": false,
+						"description": "Route LLM API calls through a local proxy that injects credentials from OS keychain. API keys never reach SDK clients."
+					},
+					"codebuddy.hybridSearch.vectorWeight": {
+						"type": "number",
+						"default": 0.7,
+						"minimum": 0,
+						"maximum": 1,
+						"description": "Weight for vector (semantic) scores in hybrid search. Higher values favour semantic similarity. Weights are automatically normalised so vectorWeight + textWeight = 1."
+					},
+					"codebuddy.hybridSearch.textWeight": {
+						"type": "number",
+						"default": 0.3,
+						"minimum": 0,
+						"maximum": 1,
+						"description": "Weight for BM25 (keyword) scores in hybrid search. Higher values favour exact keyword matches. Weights are automatically normalised so vectorWeight + textWeight = 1."
+					},
+					"codebuddy.hybridSearch.topK": {
+						"type": "integer",
+						"default": 10,
+						"minimum": 1,
+						"maximum": 50,
+						"description": "Maximum number of results returned by hybrid search."
+					},
+					"codebuddy.hybridSearch.mmr.enabled": {
+						"type": "boolean",
+						"default": false,
+						"description": "Enable Maximal Marginal Relevance (MMR) re-ranking for result diversity."
+					},
+					"codebuddy.hybridSearch.mmr.lambda": {
+						"type": "number",
+						"default": 0.7,
+						"minimum": 0,
+						"maximum": 1,
+						"description": "MMR lambda: 0 = max diversity, 1 = max relevance."
+					},
+					"codebuddy.hybridSearch.temporalDecay.enabled": {
+						"type": "boolean",
+						"default": false,
+						"description": "Enable temporal decay so recently indexed content ranks higher."
+					},
+					"codebuddy.hybridSearch.temporalDecay.halfLifeDays": {
+						"type": "integer",
+						"default": 30,
+						"minimum": 1,
+						"maximum": 365,
+						"description": "Number of days after which a result's score is halved."
+					},
+					"codebuddy.permissionScope.defaultProfile": {
+						"type": "string",
+						"enum": [
+							"restricted",
+							"standard",
+							"trusted"
+						],
+						"default": "standard",
+						"description": "Default permission profile: restricted (read-only, no terminal), standard (read/write, safe terminal), trusted (full access, auto-approve). Overridden by .codebuddy/permissions.json if present."
+					},
+					"codebuddy.accessControl.defaultMode": {
+						"type": "string",
+						"enum": [
+							"open",
+							"allow",
+							"deny"
+						],
+						"default": "open",
+						"description": "Default access control mode: open (no restrictions), allow (only listed users), deny (block listed users). Overridden by .codebuddy/access.json if present."
+					},
+					"codebuddy.credentialProxy.rateLimits": {
+						"type": "object",
+						"default": {
+							"anthropic": 60,
+							"openai": 60,
+							"groq": 30,
+							"deepseek": 60,
+							"qwen": 60,
+							"glm": 60,
+							"grok": 60
+						},
+						"description": "Per-provider rate limits (requests per minute) for the credential proxy.",
+						"additionalProperties": {
+							"type": "integer",
+							"minimum": 1,
+							"maximum": 3600
+						}
+					},
+					"codebuddy.nickname": {
+						"type": "string",
+						"default": "",
+						"description": "%config.nickname%"
+					},
+					"codebuddy.autoApprove": {
+						"type": "boolean",
+						"default": false,
+						"description": "%config.autoApprove%"
+					},
+					"codebuddy.allowFileEdits": {
+						"type": "boolean",
+						"default": true,
+						"description": "%config.allowFileEdits%"
+					},
+					"codebuddy.allowTerminal": {
+						"type": "boolean",
+						"default": true,
+						"description": "%config.allowTerminal%"
+					},
+					"codebuddy.verboseLogging": {
+						"type": "boolean",
+						"default": false,
+						"description": "%config.verboseLogging%"
+					},
+					"codebuddy.indexCodebase": {
+						"type": "boolean",
+						"default": false,
+						"description": "%config.indexCodebase%"
+					},
+					"codebuddy.contextWindow": {
+						"type": "string",
+						"enum": [
+							"4k",
+							"8k",
+							"16k",
+							"32k",
+							"128k"
+						],
+						"default": "16k",
+						"description": "%config.contextWindow%"
+					},
+					"codebuddy.includeHidden": {
+						"type": "boolean",
+						"default": false,
+						"description": "%config.includeHidden%"
+					},
+					"codebuddy.maxFileSize": {
+						"type": "string",
+						"default": "1",
+						"description": "%config.maxFileSize%"
+					},
+					"codebuddy.requireDiffApproval": {
+						"type": "boolean",
+						"default": false,
+						"description": "%config.requireDiffApproval%"
+					},
+					"codebuddy.review.inlineComments": {
+						"type": "boolean",
+						"default": true,
+						"description": "%config.reviewInlineComments%"
+					},
+					"codebuddy.agent.maxEventCount": {
+						"type": "number",
+						"default": 2000,
+						"minimum": 500,
+						"maximum": 10000,
+						"description": "%config.agentMaxEventCount%"
+					},
+					"codebuddy.agent.maxToolInvocations": {
+						"type": "number",
+						"default": 400,
+						"minimum": 50,
+						"maximum": 2000,
+						"description": "%config.agentMaxToolInvocations%"
+					},
+					"codebuddy.agent.maxDurationMinutes": {
+						"type": "number",
+						"default": 10,
+						"minimum": 1,
+						"maximum": 60,
+						"description": "%config.agentMaxDurationMinutes%"
+					},
+					"codebuddy.agent.maxConcurrentStreams": {
+						"type": "number",
+						"default": 3,
+						"minimum": 1,
+						"maximum": 10,
+						"description": "%config.agentMaxConcurrentStreams%"
+					},
+					"codebuddy.completion.enabled": {
+						"type": "boolean",
+						"default": true,
+						"description": "%config.completionEnabled%"
+					},
+					"codebuddy.completion.provider": {
+						"type": "string",
+						"enum": [
+							"Gemini",
+							"Groq",
+							"Anthropic",
+							"Deepseek",
+							"OpenAI",
+							"Qwen",
+							"GLM",
+							"Local"
+						],
+						"default": "Local",
+						"description": "%config.completionProvider%"
+					},
+					"codebuddy.completion.model": {
+						"type": "string",
+						"default": "qwen2.5-coder",
+						"description": "%config.completionModel%"
+					},
+					"codebuddy.completion.apiKey": {
+						"type": [
+							"string",
+							"null"
+						],
+						"default": "",
+						"description": "%config.completionApiKey%"
+					},
+					"codebuddy.completion.debounceMs": {
+						"type": "number",
+						"default": 300,
+						"minimum": 50,
+						"description": "%config.completionDebounceMs%"
+					},
+					"codebuddy.completion.maxTokens": {
+						"type": "number",
+						"default": 128,
+						"description": "%config.completionMaxTokens%"
+					},
+					"codebuddy.completion.triggerMode": {
+						"type": "string",
+						"enum": [
+							"automatic",
+							"manual"
+						],
+						"default": "automatic",
+						"description": "%config.completionTriggerMode%"
+					},
+					"codebuddy.completion.multiLine": {
+						"type": "boolean",
+						"default": true,
+						"description": "%config.completionMultiLine%"
+					},
+					"codebuddy.rules.enabled": {
+						"type": "boolean",
+						"default": true,
+						"description": "%config.rulesEnabled%"
+					},
+					"codebuddy.rules.maxTokens": {
+						"type": "number",
+						"default": 2000,
+						"description": "%config.rulesMaxTokens%"
+					},
+					"codebuddy.rules.showIndicator": {
+						"type": "boolean",
+						"default": true,
+						"description": "%config.rulesShowIndicator%"
+					},
+					"rules.customRules": {
+						"type": "array",
+						"default": [],
+						"description": "%config.customRules%",
+						"items": {
+							"type": "object",
+							"properties": {
+								"id": {
+									"type": "string"
+								},
+								"name": {
+									"type": "string"
+								},
+								"description": {
+									"type": "string"
+								},
+								"content": {
+									"type": "string"
+								},
+								"enabled": {
+									"type": "boolean"
+								},
+								"createdAt": {
+									"type": "number"
+								}
+							}
+						}
+					},
+					"rules.customSystemPrompt": {
+						"type": "string",
+						"default": "",
+						"description": "%config.customSystemPrompt%"
+					},
+					"rules.subagents": {
+						"type": "object",
+						"default": {},
+						"description": "%config.subagents%",
+						"additionalProperties": {
+							"type": "object",
+							"properties": {
+								"enabled": {
+									"type": "boolean"
+								}
+							}
+						}
+					},
+					"codebuddy.connectors.states": {
+						"type": "object",
+						"default": {},
+						"description": "%config.connectorStates%",
+						"scope": "application"
+					},
+					"codebuddy.mcp.servers": {
+						"type": "object",
+						"default": {},
+						"description": "%config.mcpServers%",
+						"scope": "application"
+					},
+					"codebuddy.mcp.disabledTools": {
+						"type": "object",
+						"default": {},
+						"description": "%config.mcpDisabledTools%",
+						"scope": "application"
+					},
+					"codebuddy.automations.dailyStandup.enabled": {
+						"type": "boolean",
+						"default": true,
+						"description": "%config.dailyStandupEnabled%"
+					},
+					"codebuddy.automations.codeHealth.enabled": {
+						"type": "boolean",
+						"default": true,
+						"description": "%config.codeHealthEnabled%"
+					},
+					"codebuddy.automations.dependencyCheck.enabled": {
+						"type": "boolean",
+						"default": true,
+						"description": "%config.dependencyCheckEnabled%"
+					},
+					"codebuddy.automations.gitWatchdog.enabled": {
+						"type": "boolean",
+						"default": true,
+						"description": "%config.gitWatchdogEnabled%"
+					},
+					"codebuddy.automations.gitWatchdog.protectedBranches": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						},
+						"default": [
+							"main",
+							"master",
+							"develop",
+							"dev",
+							"feature/*",
+							"release/*",
+							"hotfix/*"
+						],
+						"description": "%config.gitWatchdogProtectedBranches%"
+					},
+					"codebuddy.automations.codeHealth.hotspotMinChanges": {
+						"type": "number",
+						"default": 3,
+						"minimum": 1,
+						"description": "%config.codeHealthHotspotMinChanges%"
+					},
+					"codebuddy.automations.codeHealth.largeFileThreshold": {
+						"type": "number",
+						"default": 300,
+						"minimum": 50,
+						"description": "%config.codeHealthLargeFileThreshold%"
+					},
+					"codebuddy.automations.codeHealth.maxTodoItems": {
+						"type": "number",
+						"default": 50,
+						"minimum": 10,
+						"description": "%config.codeHealthMaxTodoItems%"
+					},
+					"codebuddy.automations.endOfDaySummary.enabled": {
+						"type": "boolean",
+						"default": true,
+						"description": "%config.endOfDaySummaryEnabled%"
+					},
+					"codebuddy.language": {
+						"type": "string",
+						"enum": [
+							"en",
+							"es",
+							"fr",
+							"de",
+							"zh-cn",
+							"ja",
+							"yo"
+						],
+						"default": "en",
+						"description": "%config.language%"
+					},
+					"codebuddy.browserType": {
+						"type": "string",
+						"enum": [
+							"reader",
+							"simple",
+							"system"
+						],
+						"default": "system",
+						"description": "%config.browserType%"
+					},
+					"codebuddy.vectorDb.enabled": {
+						"type": "boolean",
+						"default": true,
+						"description": "Enable vector database for semantic code search."
+					},
+					"codebuddy.vectorDb.embeddingModel": {
+						"type": "string",
+						"enum": [
+							"gemini",
+							"openai",
+							"local"
+						],
+						"default": "gemini",
+						"description": "Embedding model provider for vector database."
+					},
+					"codebuddy.vectorDb.maxTokens": {
+						"type": "number",
+						"default": 6000,
+						"description": "Maximum tokens per chunk for vector embeddings."
+					},
+					"codebuddy.vectorDb.batchSize": {
+						"type": "number",
+						"default": 10,
+						"minimum": 1,
+						"maximum": 50,
+						"description": "Number of files to process per embedding batch."
+					},
+					"codebuddy.vectorDb.searchResultLimit": {
+						"type": "number",
+						"default": 8,
+						"minimum": 1,
+						"maximum": 20,
+						"description": "Maximum number of semantic search results to return."
+					},
+					"codebuddy.vectorDb.enableBackgroundProcessing": {
+						"type": "boolean",
+						"default": true,
+						"description": "Process vector embeddings in the background."
+					},
+					"codebuddy.vectorDb.enableProgressNotifications": {
+						"type": "boolean",
+						"default": true,
+						"description": "Show progress notifications during indexing."
+					},
+					"codebuddy.vectorDb.progressLocation": {
+						"type": "string",
+						"enum": [
+							"notification",
+							"statusBar"
+						],
+						"default": "notification",
+						"description": "Where to show indexing progress."
+					},
+					"codebuddy.vectorDb.debounceDelay": {
+						"type": "number",
+						"default": 1000,
+						"description": "Debounce delay (ms) for re-indexing on file changes."
+					},
+					"codebuddy.vectorDb.performanceMode": {
+						"type": "string",
+						"enum": [
+							"balanced",
+							"performance",
+							"memory"
+						],
+						"default": "balanced",
+						"description": "Performance mode for vector database operations."
+					},
+					"codebuddy.vectorDb.fallbackToKeywordSearch": {
+						"type": "boolean",
+						"default": true,
+						"description": "Fall back to keyword search when vector search is unavailable."
+					},
+					"codebuddy.vectorDb.cacheEnabled": {
+						"type": "boolean",
+						"default": true,
+						"description": "Enable caching of vector search results."
+					},
+					"codebuddy.vectorDb.logLevel": {
+						"type": "string",
+						"enum": [
+							"debug",
+							"info",
+							"warn",
+							"error"
+						],
+						"default": "info",
+						"description": "Log level for vector database operations."
+					},
+					"codebuddy.testCommand": {
+						"type": "string",
+						"default": "",
+						"description": "Custom shell command to run tests. If empty, CodeBuddy auto-detects the framework (Jest, Vitest, Mocha, Pytest, Go, Cargo)."
+					},
+					"codebuddy.testTimeout": {
+						"type": "number",
+						"default": 120000,
+						"minimum": 5000,
+						"maximum": 600000,
+						"description": "Timeout in milliseconds for test execution (default: 120000 = 2 minutes)."
+					},
+					"codebuddy.telemetry.persistTraces": {
+						"type": "boolean",
+						"default": true,
+						"description": "Persist agent telemetry traces to disk so they survive across VS Code sessions."
+					},
+					"codebuddy.telemetry.retentionDays": {
+						"type": "number",
+						"default": 7,
+						"minimum": 1,
+						"maximum": 90,
+						"description": "Number of days to retain persisted telemetry traces before auto-pruning."
+					},
+					"codebuddy.telemetry.otlpEndpoint": {
+						"type": "string",
+						"default": "",
+						"description": "Optional OTLP HTTP endpoint for exporting traces to an external backend (e.g. LangFuse, LangSmith, Jaeger). Leave empty to disable."
+					},
+					"codebuddy.failover.enabled": {
+						"type": "boolean",
+						"default": true,
+						"description": "Automatically switch to a fallback LLM provider when the primary fails (rate limit, timeout, auth error)."
+					},
+					"codebuddy.failover.providers": {
+						"type": "array",
+						"items": {
+							"type": "string",
+							"enum": [
+								"Anthropic",
+								"OpenAI",
+								"Gemini",
+								"Groq",
+								"Deepseek",
+								"Qwen",
+								"GLM",
+								"Local"
+							]
+						},
+						"default": [],
+						"markdownDescription": "Ordered list of fallback providers to try when the primary fails. Leave empty to auto-detect from configured API keys."
+					},
+					"codebuddy.standup.myName": {
+						"type": "string",
+						"default": "",
+						"markdownDescription": "Your name as it appears in standup/meeting notes (used to filter your action items). Falls back to `git config user.name` if empty."
+					}
+				}
+			}
+		]
+	},
+	"scripts": {
+		"package": "node esbuild.js --production",
+		"build": "npm run compile && npm run format && npm run build:webview && npm run package",
+		"dev:webview": "cd webviewUi && npm run dev",
+		"build:webview": "cd webviewUi && npm run build",
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"compile:test": "tsc -p tsconfig.test.json",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile:test && npm run lint",
+		"lint": "eslint src --ext ts",
+		"fix": "eslint src --ext ts --fix",
+		"test": "vscode-test",
+		"test:coverage": "vscode-test --coverage --coverage-reporter text-summary --coverage-reporter lcov --coverage-reporter json-summary",
+		"format": "prettier --write \"**/*.ts\"",
+		"fix-chromadb": "npm uninstall chromadb && npm install chromadb@1.8.1",
+		"setup-chromadb-server": "echo 'Install ChromaDB server: pip install chromadb' && echo 'Start server: chroma run --host localhost --port 8000'"
+	},
+	"devDependencies": {
+		"@types/dompurify": "^3.0.5",
+		"@types/fast-levenshtein": "^0.0.4",
+		"@types/js-yaml": "^4.0.9",
+		"@types/jsdom": "^21.1.7",
+		"@types/markdown-it": "^13.0.7",
+		"@types/mocha": "^10.0.1",
+		"@types/node": "^20.2.5",
+		"@types/node-fetch": "^2.6.11",
+		"@types/readable-stream": "^4.0.11",
+		"@types/sinon": "^17.0.3",
+		"@types/sql.js": "^1.4.9",
+		"@types/vscode": "^1.78.0",
+		"@typescript-eslint/eslint-plugin": "^8.56.0",
+		"@typescript-eslint/parser": "^8.56.0",
+		"@vscode/test-cli": "^0.0.8",
+		"@vscode/test-electron": "^2.3.2",
+		"esbuild": "^0.25.8",
+		"eslint": "^8.57.1",
+		"mocha": "^10.2.0",
+		"prettier": "^3.2.5",
+		"sinon": "^17.0.1",
+		"typescript": "^5.4.3"
+	},
+	"dependencies": {
+		"@anthropic-ai/sdk": "^0.52.0",
+		"@chroma-core/default-embed": "^0.1.8",
+		"@google/genai": "^0.7.0",
+		"@google/generative-ai": "^0.21.0",
+		"@langchain/anthropic": "^1.3.19",
+		"@langchain/core": "^1.1.27",
+		"@langchain/google-genai": "^2.1.18",
+		"@langchain/groq": "^1.0.2",
+		"@langchain/langgraph": "^1.0.0",
+		"@langchain/langgraph-checkpoint-sqlite": "^1.0.0",
+		"@langchain/openai": "^1.2.4",
+		"@modelcontextprotocol/sdk": "^1.24.3",
+		"@mozilla/readability": "^0.4.1",
+		"@opentelemetry/api": "^1.9.0",
+		"@opentelemetry/exporter-metrics-otlp-http": "^0.212.0",
+		"@opentelemetry/sdk-trace-base": "^2.5.1",
+		"@traceloop/node-server-sdk": "^0.22.7",
+		"@vscode/l10n": "^0.0.18",
+		"@vscode/ripgrep": "^1.17.0",
+		"apache-arrow": "18.1.0",
+		"axios": "^1.7.9",
+		"deepagents": "^1.8.3",
+		"dompurify": "^3.2.6",
+		"dotenv": "^16.1.4",
+		"fast-levenshtein": "^3.0.0",
+		"groq-sdk": "^0.22.0",
+		"js-yaml": "^4.1.1",
+		"jsdom": "^26.0.0",
+		"langchain": "^1.0.4",
+		"llama3-tokenizer-js": "^1.2.0",
+		"lru-cache": "^11.2.2",
+		"markdown-it": "^14.1.0",
+		"natural": "^8.1.0",
+		"node-fetch": "^3.3.2",
+		"openai": "^4.28.0",
+		"readable-stream": "^4.5.2",
+		"rss-parser": "^3.13.0",
+		"simple-git": "^3.25.0",
+		"sql.js": "^1.14.1",
+		"web-tree-sitter": "^0.25.10"
+	},
+	"overrides": {
+		"mongodb": {
+			"gcp-metadata": "^6.1.1"
+		}
+	},
+	"license": "MIT",
+	"__metadata": {
+		"installedTimestamp": 1775706150810,
+		"targetPlatform": "universal",
+		"size": 68343838
+	}
+}

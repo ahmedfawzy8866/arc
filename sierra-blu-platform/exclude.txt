@@ -1,0 +1,8 @@
+Google_Chrome_Data\
+.git\
+.github\
+.vscode\
+node_modules\
+*.log\
+*.tmp\
+.next\

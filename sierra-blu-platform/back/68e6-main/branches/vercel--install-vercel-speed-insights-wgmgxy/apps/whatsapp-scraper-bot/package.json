@@ -1,0 +1,19 @@
+{
+  "name": "whatsapp-scraper-bot",
+  "version": "1.0.0",
+  "description": "Sierra Blu WhatsApp scraper bot — forwards broker group messages to the Sierra Blu platform API for AI-powered parsing.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js"
+  },
+  "keywords": ["whatsapp", "sierra-blu", "bot", "scraper"],
+  "author": "ahmedfawzy8866",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "qrcode-terminal": "^0.12.0",
+    "whatsapp-web.js": "^1.34.6",
+    "axios": "^1.7.0"
+  }
+}

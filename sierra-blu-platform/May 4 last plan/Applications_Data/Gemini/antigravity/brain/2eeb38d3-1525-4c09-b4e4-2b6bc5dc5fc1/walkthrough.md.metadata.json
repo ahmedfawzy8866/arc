@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_WALKTHROUGH",
+  "summary": "Fixed markdown image paths in the walkthrough to match absolute Windows paths.",
+  "updatedAt": "2026-03-16T04:28:34.769249300Z",
+  "version": "3"
+}

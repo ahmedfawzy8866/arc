@@ -1,0 +1,16 @@
+{
+  "name": "Leila Agent — Lead Scoring & Agent Alert",
+  "nodes": [
+    {
+      "parameters": { "httpMethod": "POST", "path": "leila-lead-webhook" },
+      "id": "219e0758-c0b8-4d57-b08e-17482811a001",
+      "name": "Leila Webhook Ingestion",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [200, 300]
+    }
+  ],
+  "connections": {},
+  "active": false,
+  "settings": {}
+}

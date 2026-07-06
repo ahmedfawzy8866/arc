@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "jobs": [
+    {
+      "id": "648a9002-9e9d-4a05-b9ae-9b03c4839ec2",
+      "agentId": "main",
+      "name": "owner-ops-monitor",
+      "description": "Twice-daily owner operations monitoring summary for Ahmed",
+      "enabled": true,
+      "createdAtMs": 1774862964621,
+      "updatedAtMs": 1774863083199,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 10,18 * * *",
+        "tz": "Africa/Cairo"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Run an owner operations check for Ahmed. Review gateway health, Telegram status, recent sessions, obvious workflow gaps, stale follow-up opportunities, and config issues. Reply with three short sections only: What I noticed / Why it matters / Recommended next step. If everything looks healthy, suggest the highest-value next improvement and offer to handle it.",
+        "thinking": "low"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "telegram",
+        "to": "7175892124"
+      },
+      "state": {
+        "nextRunAtMs": 1774886400000,
+        "lastRunAtMs": 1774863054642,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 28557,
+        "lastDelivered": true,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 0
+      }
+    }
+  ]
+}

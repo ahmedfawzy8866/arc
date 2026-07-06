@@ -1,0 +1,62 @@
+# ✅ SETUP READY - ONE COMMAND ONLY
+
+## Download This File:
+- **install.sh** (from outputs)
+
+## Then Run This Command:
+
+```bash
+cd ~/path/to/sierra-blu-realty-v12
+bash ~/Downloads/install.sh
+```
+
+**That's literally it.**
+
+---
+
+## What Happens (Automatic):
+
+```
+✅ Checks your system
+✅ Creates all directories (.claude, scripts, .github/workflows, libs, reports)
+✅ Generates all config files
+✅ Clones all 3 repos (motion-principles, taste-skill, impeccable)
+✅ Sets up GitHub Actions
+✅ Shows you what's done
+```
+
+**Takes ~2 minutes. Zero interaction needed.**
+
+---
+
+## After Setup Completes:
+
+```bash
+git add .
+git commit -m "chore: add repo sync"
+git push
+```
+
+**Done.** GitHub Actions runs every Monday automatically.
+
+---
+
+## If You Need Manual Sync Later:
+
+```bash
+./scripts/sync-repos.sh
+```
+
+Then in Claude Code: `read .claude/sync-repos.md`
+
+---
+
+## What Gets Generated:
+
+- ✅ **SYNC_REPORT.md** (after each sync)
+- ✅ **reports/sync/** (archive of all reports)
+- ✅ **.setup-log.txt** (what the installer did)
+
+---
+
+**That's everything. Just download install.sh and run it.** 🚀

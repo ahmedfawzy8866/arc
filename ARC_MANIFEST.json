@@ -1,0 +1,106 @@
+{
+  "name": "arc",
+  "description": "Merged archive of 15 distinct GitHub repos from ahmedfawzy8866.",
+  "created": "2026-07-06",
+  "source": "Consolidated from _archived_repos/ in Sierra-Estates-Final",
+  "merge_method": "hardlink + cross-repo hash dedup",
+  "repos": {
+    "Admin-Page-3.0": {
+      "files_linked": 43,
+      "files_skipped": 0,
+      "large_files_skipped": 0
+    },
+    "New-folder": {
+      "files_linked": 128,
+      "files_skipped": 0,
+      "large_files_skipped": 0
+    },
+    "RuView": {
+      "files_linked": 1827,
+      "files_skipped": 0,
+      "large_files_skipped": 0
+    },
+    "final-frontend": {
+      "files_linked": 224,
+      "files_skipped": 0,
+      "large_files_skipped": 0
+    },
+    "free-claude-code": {
+      "files_linked": 304,
+      "files_skipped": 0,
+      "large_files_skipped": 0
+    },
+    "i-sierra-2027": {
+      "files_linked": 8627,
+      "files_skipped": 0,
+      "large_files_skipped": 0
+    },
+    "key-key-": {
+      "files_linked": 55,
+      "files_skipped": 0,
+      "large_files_skipped": 0
+    },
+    "knowledge-work-plugins": {
+      "files_linked": 1134,
+      "files_skipped": 0,
+      "large_files_skipped": 0
+    },
+    "mempalace": {
+      "files_linked": 479,
+      "files_skipped": 0,
+      "large_files_skipped": 0
+    },
+    "setup-node": {
+      "files_linked": 156,
+      "files_skipped": 0,
+      "large_files_skipped": 0
+    },
+    "sf1": {
+      "files_linked": 131,
+      "files_skipped": 0,
+      "large_files_skipped": 0
+    },
+    "sierra-2026": {
+      "files_linked": 22794,
+      "files_skipped": 0,
+      "large_files_skipped": 0
+    },
+    "sierra-blu-platform": {
+      "files_linked": 98878,
+      "files_skipped": 0,
+      "large_files_skipped": 0
+    },
+    "sierra-estates": {
+      "files_linked": 4527,
+      "files_skipped": 0,
+      "large_files_skipped": 0
+    },
+    "taste-skill": {
+      "files_linked": 39,
+      "files_skipped": 0,
+      "large_files_skipped": 0
+    }
+  },
+  "dedup_stats": {
+    "duplicate_files_removed": 8216,
+    "unique_hash_path_groups_with_dups": 8214
+  },
+  "empty_dirs_removed": 1461,
+  "large_files_skipped_per_repo": {
+    "Admin-Page-3.0": [],
+    "New-folder": [],
+    "RuView": [],
+    "final-frontend": [],
+    "free-claude-code": [],
+    "i-sierra-2027": [],
+    "key-key-": [],
+    "knowledge-work-plugins": [],
+    "mempalace": [],
+    "setup-node": [],
+    "sf1": [],
+    "sierra-2026": [],
+    "sierra-blu-platform": [],
+    "sierra-estates": [],
+    "taste-skill": []
+  }
+}

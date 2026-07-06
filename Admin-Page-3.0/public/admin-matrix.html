@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Sierra Estates 3.0 · Intelligence OS · Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&family=Cairo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+<style>
+/* ── TOKENS ─────────────────────────────────────────────────────────── */
+:root{--gold:#C8961A;--gold-lt:#E9C176;--red:#F87171;--emerald:#34D399;--blue:#60A5FA;--purple:#A78BFA;--amber:#FBBF24;}
+[data-theme="dark"]{--bg:#000000;--bg-s:#050505;--bg-e:#0A0A0A;--bg-e2:#121212;--surf:rgba(255,255,255,.05);--surf2:rgba(255,255,255,.02);--tx:#FFFFFF;--tx-s:#FFFFFF;--tx-m:#A1A1AA;--tx-f:#71717A;--bd:rgba(255,255,255,.08);--bd-s:rgba(255,255,255,.15);}
+[data-theme="light"]{--bg:#FAFAFA;--bg-s:#F4F4F5;--bg-e:#FFFFFF;--bg-e2:#E4E4E7;--surf:rgba(0,0,0,.04);--surf2:rgba(0,0,0,.02);--tx:#09090B;--tx-s:#000000;--tx-m:#52525B;--tx-f:#A1A1AA;--bd:rgba(0,0,0,.08);--bd-s:rgba(0,0,0,.15);}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--tx);}
+[dir="rtl"] body{font-family:'Cairo','Inter',sans-serif;}
+#root{display:flex;height:100vh;overflow:hidden;}
+::-webkit-scrollbar{width:5px;height:5px;}
+::-webkit-scrollbar-thumb{background:rgba(200,150,26,.25);border-radius:3px;}
+
+/* ── ANIMATIONS ─────────────────────────────────────────────────────── */
+@keyframes goldShimmer{0%{background-position:0%}100%{background-position:200%}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@keyframes slideIn{from{transform:translateX(-100%)}to{transform:translateX(0)}}
+@keyframes countUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.gold-text{background:linear-gradient(90deg,#E9C176,#C8961A,#F5D78E,#C8961A,#E9C176);background-size:200%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:goldShimmer 5s linear infinite;}
+.fade-up{animation:fadeUp 400ms cubic-bezier(.16,1,.3,1) both;}
+.pulse-dot{animation:pulse 2s ease-in-out infinite;}
+
+/* ── SIDEBAR ────────────────────────────────────────────────────────── */
+#sidebar{width:220px;flex-shrink:0;display:flex;flex-direction:column;border-inline-end:1px solid var(--bd);background:var(--bg-s);transition:width 300ms ease;overflow:hidden;z-index:100;}
+#sidebar.collapsed{width:56px;}
+.brand{padding:16px;border-bottom:1px solid var(--bd);display:flex;align-items:center;gap:10px;min-height:56px;}
+.brand-text{overflow:hidden;transition:opacity 200ms;}
+.brand-name{font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:700;letter-spacing:.22em;color:var(--gold-lt);}
+.brand-sub{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:.18em;color:var(--tx-f);text-transform:uppercase;margin-top:2px;}
+#sidebar.collapsed .brand-text{opacity:0;width:0;}
+.nav-section{padding:8px 8px 4px;font-family:'JetBrains Mono',monospace;font-size:7px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--tx-f);white-space:nowrap;overflow:hidden;}
+.nav-item{display:flex;align-items:center;gap:10px;padding:9px 12px;margin:1px 6px;border-radius:10px;cursor:pointer;transition:all 200ms;font-size:12px;font-weight:500;color:var(--tx-m);white-space:nowrap;overflow:hidden;}
+.nav-item:hover{background:var(--surf);color:var(--tx);}
+.nav-item.active{background:rgba(200,150,26,.13);color:var(--gold-lt);}
+.nav-icon{flex-shrink:0;width:18px;text-align:center;}
+.nav-badge{margin-inline-start:auto;color:#fff;font-size:8px;font-weight:700;padding:2px 6px;border-radius:20px;flex-shrink:0;}
+.nb-red{background:var(--red);}
+.nb-green{background:var(--emerald);color:#071422;}
+.nb-blue{background:var(--blue);}
+#sidebar.collapsed .nav-item span,#sidebar.collapsed .nav-section,#sidebar.collapsed .nav-badge{opacity:0;width:0;overflow:hidden;}
+
+/* ── MOBILE OVERLAY SIDEBAR ─────────────────────────────────────────── */
+.mobile-overlay{display:none;position:fixed;inset:0;z-index:199;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);}
+.mobile-sidebar{position:fixed;top:0;left:0;width:260px;height:100vh;background:var(--bg-s);border-right:1px solid var(--bd);z-index:200;animation:slideIn .35s cubic-bezier(.16,1,.3,1);overflow-y:auto;flex-direction:column;display:flex;}
+[dir="rtl"] .mobile-sidebar{left:auto;right:0;border-right:none;border-left:1px solid var(--bd);}
+@media(max-width:768px){
+  #sidebar{display:none!important;}
+  .mobile-overlay.open{display:block;}
+  .hamburger-btn{display:flex!important;}
+  #content{padding:14px;}
+  .kpi-grid{grid-template-columns:repeat(2,1fr)!important;}
+  .grid-3{grid-template-columns:1fr!important;}
+  .grid-2{grid-template-columns:1fr!important;}
+  .data-table{font-size:10px;}
+  .data-table th,.data-table td{padding:7px 8px;}
+}
+
+/* ── TOPBAR ─────────────────────────────────────────────────────────── */
+#main{flex:1;display:flex;flex-direction:column;overflow:hidden;}
+#topbar{height:56px;flex-shrink:0;border-bottom:1px solid var(--bd);display:flex;align-items:center;padding:0 20px;gap:10px;background:var(--bg-s);}
+.topbar-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;color:var(--tx);}
+.topbar-pill{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:20px;border:1px solid var(--bd);font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;color:var(--tx-m);cursor:pointer;transition:all 200ms;background:none;}
+.topbar-pill:hover{border-color:var(--gold);color:var(--gold);}
+.topbar-pill.on{background:linear-gradient(135deg,var(--gold),var(--gold-lt));color:#071422;border-color:var(--gold);}
+.hamburger-btn{display:none;background:none;border:none;color:var(--tx);cursor:pointer;padding:6px;border-radius:8px;align-items:center;justify-content:center;}
+.hamburger-btn:hover{background:var(--surf);}
+#content{flex:1;overflow-y:auto;padding:20px;}
+
+/* ── CARDS & KPI ────────────────────────────────────────────────────── */
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:16px;margin-bottom:24px;}
+.kpi-card{background:var(--bg-e);border:1px solid var(--bd);border-radius:12px;padding:20px;position:relative;overflow:hidden;transition:border-color .3s,transform .3s;box-shadow:0 4px 20px -10px rgba(0,0,0,0.5);}
+.kpi-card:hover{border-color:rgba(200,150,26,.35);transform:translateY(-2px);}
+.kpi-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;border-radius:12px 0 0 12px;}
+.kpi-val{font-family:'JetBrains Mono',monospace;font-size:1.75rem;font-weight:600;line-height:1;margin-top:8px;animation:countUp .6s ease both;color:var(--tx-s);}
+.kpi-lbl{font-size:10px;color:var(--tx-m);font-family:'Inter',sans-serif;text-transform:uppercase;letter-spacing:.08em;font-weight:600;}
+.kpi-delta{font-size:10px;font-weight:600;margin-top:8px;font-family:'JetBrains Mono',monospace;display:inline-flex;padding:2px 6px;border-radius:4px;background:var(--surf);}
+.kpi-delta.up{color:var(--emerald);}
+.kpi-delta.dn{color:var(--red);}
+.sparkline{margin-top:8px;display:flex;align-items:flex-end;gap:2px;height:24px;}
+.spark-bar{flex:1;border-radius:2px 2px 0 0;min-height:3px;transition:height .8s ease;}
+.card{background:var(--bg-e);border:1px solid var(--bd);border-radius:12px;overflow:hidden;box-shadow:0 4px 20px -10px rgba(0,0,0,0.5);}
+.card-hd{padding:16px 20px;border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--surf2);}
+.card-title{font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:.05em;color:var(--tx-s);}
+.card-body{padding:0;}
+
+/* ── TABLE ──────────────────────────────────────────────────────────── */
+.data-table{width:100%;border-collapse:collapse;font-size:11.5px;}
+.data-table th{padding:9px 12px;text-align:start;font-family:'JetBrains Mono',monospace;font-size:8px;text-transform:uppercase;letter-spacing:.16em;color:var(--gold);border-bottom:1px solid var(--bd-s);background:var(--bg-e);white-space:nowrap;}
+.data-table td{padding:9px 12px;border-bottom:1px solid var(--bd);color:var(--tx-m);white-space:nowrap;}
+.data-table tr:hover td{background:rgba(200,150,26,.04);}
+.data-table tr:last-child td{border-bottom:none;}
+
+/* ── CHIPS, BTNS ────────────────────────────────────────────────────── */
+.chip{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:20px;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;}
+.chip-green{background:rgba(52,211,153,.12);color:var(--emerald);}
+.chip-amber{background:rgba(245,158,11,.12);color:var(--amber);}
+.chip-red{background:rgba(230,57,70,.12);color:var(--red);}
+.chip-blue{background:rgba(30,136,217,.12);color:var(--blue);}
+.chip-purple{background:rgba(124,58,237,.12);color:var(--purple);}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:10px;font-size:11px;font-weight:600;cursor:pointer;transition:all 200ms;border:none;outline:none;font-family:inherit;}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-lt));color:#071422;}
+.btn-ghost{background:var(--surf);color:var(--tx-m);border:1px solid var(--bd);}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+.btn-red{background:rgba(230,57,70,.15);color:var(--red);border:1px solid rgba(230,57,70,.2);}
+.btn-green{background:rgba(52,211,153,.15);color:var(--emerald);border:1px solid rgba(52,211,153,.2);}
+
+/* ── MISC ────────────────────────────────────────────────────────────── */
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+@media(max-width:1100px){.grid-3{grid-template-columns:1fr 1fr;}}
+@media(max-width:900px){.grid-3,.grid-2{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="module">
+  import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+  import { getFirestore, collection, query, orderBy, limit, onSnapshot } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+
+  window.FirebaseDBConfig = async () => {
+    try {
+      const config = {
+        "projectId": "sierra-blu-realty",
+        "appId": "1:34912869778:web:d37103f736922e5f10b54b",
+        "apiKey": "AIzaSyDfuCbwIYTsOQBkjQGR5U7x_S3lc_SVGzs",
+        "authDomain": "sierra-blu-realty.firebaseapp.com",
+        "firestoreDatabaseId": "ai-studio-db40d221-878c-4a6e-8c31-0d8dbbe5b956",
+        "storageBucket": "sierra-blu-realty.firebasestorage.app",
+        "messagingSenderId": "34912869778"
+      };
+      const app = initializeApp(config);
+      const db = getFirestore(app, config.firestoreDatabaseId || '(default)');
+      return { db, collection, query, orderBy, limit, onSnapshot };
+    } catch(err) {
+      console.warn("Could not init Firebase", err);
+      return null;
+    }
+  };
+</script>
+
+<script type="text/babel" data-presets="react">
+const { useState, useEffect, useCallback } = React;
+
+const LANG = {
+  en: {
+    brand:'SIERRA ESTATES 3.0', brandSub:'INTELLIGENCE OS',
+    overview:'Intelligence OS', main:'Main', collapse:'Collapse', livesite:'Live Site'
+  }
+};
+
+const NAV_ITEMS = (T) => [
+  {id:'overview',label:T('overview'),icon:'🏠',section:T('main')}
+];
+
+function OverviewPage({ T }) {
+  const [activityFeed, setActivityFeed] = useState([]);
+
+  useEffect(() => {
+    let unsubs = [];
+    if (window.FirebaseDBConfig) {
+      window.FirebaseDBConfig().then(fb => {
+        if (!fb) return;
+        
+        // Listen to Leads
+        const qLeads = fb.query(fb.collection(fb.db, 'leads'), fb.limit(5));
+        const uLeads = fb.onSnapshot(qLeads, (snap) => {
+          const events = snap.docs.map(doc => ({
+            id: doc.id,
+            source: 'leads',
+            desc: `Lead ${doc.data().name || doc.id} updated.`,
+            time: new Date().toLocaleTimeString(),
+            ts: Date.now()
+          }));
+          
+          setActivityFeed(prev => {
+            const merged = [...events, ...prev].filter((v,i,a) => a.findIndex(t=>t.id===v.id)===i);
+            return merged.sort((a,b) => b.ts - a.ts).slice(0, 5);
+          });
+        });
+        unsubs.push(uLeads);
+
+        // Listen to Maintenance
+        const qMaint = fb.query(fb.collection(fb.db, 'maintenance'), fb.limit(5));
+        const uMaint = fb.onSnapshot(qMaint, (snap) => {
+          const events = snap.docs.map(doc => ({
+            id: doc.id,
+            source: 'maintenance',
+            desc: `Maintenance ticket ${doc.id} mapped.`,
+            time: new Date().toLocaleTimeString(),
+            ts: Date.now()
+          }));
+          
+          setActivityFeed(prev => {
+            const merged = [...events, ...prev].filter((v,i,a) => a.findIndex(t=>t.id===v.id)===i);
+            return merged.sort((a,b) => b.ts - a.ts).slice(0, 5);
+          });
+        });
+        unsubs.push(uMaint);
+      });
+    }
+    return () => unsubs.forEach(u => u());
+  }, []);
+
+  return (
+    <div className="fade-up">
+      <div className="kpi-grid">
+        <div className="kpi-card">
+          <div className="kpi-lbl">Total Leads</div>
+          <div className="kpi-val">1,204</div>
+          <div className="kpi-delta up">▲ 12.4%</div>
+        </div>
+        <div className="kpi-card">
+          <div className="kpi-lbl">Active Agents</div>
+          <div className="kpi-val">42</div>
+          <div className="kpi-delta up">▲ 3.2%</div>
+        </div>
+        <div className="kpi-card">
+          <div className="kpi-lbl">Avg Response Time</div>
+          <div className="kpi-val">4m 12s</div>
+          <div className="kpi-delta dn">▼ 1.5%</div>
+        </div>
+        <div className="kpi-card">
+          <div className="kpi-lbl">Open Maintenance</div>
+          <div className="kpi-val">18</div>
+          <div className="kpi-delta up">▲ 5%</div>
+        </div>
+      </div>
+      <div className="grid-2">
+        <div className="card">
+          <div className="card-hd"><span className="card-title">Recent Firestore Activity</span><span className="chip chip-green"><span className="pulse-dot">●</span> Live Sync</span></div>
+          <div className="card-body">
+               {activityFeed.length === 0 ? <p style={{fontSize:12, color:'var(--tx-f)', padding:'20px'}}>Watching leads and maintenance collections...</p> : activityFeed.map((evt, i) => (
+                 <div key={i} style={{display:'flex', gap: 14, padding:'14px 20px', borderBottom: i === activityFeed.length - 1 ? 'none' : '1px solid var(--bd)', alignItems:'center', transition:'background 0.2s', cursor:'default'}} onMouseEnter={e => e.currentTarget.style.background='var(--surf)'} onMouseLeave={e => e.currentTarget.style.background='transparent'}>
+                   <span style={{fontFamily:'JetBrains Mono', fontSize:11, color:'var(--tx-m)', letterSpacing:'0.05em'}}>{evt.time}</span>
+                   <span className={`chip ${evt.source === 'leads' ? 'chip-blue' : 'chip-amber'}`} style={{minWidth:80, justifyContent:'center'}}>{evt.source}</span>
+                   <span style={{fontSize:12, color:'var(--tx-s)', fontWeight:500}}>{evt.desc}</span>
+                 </div>
+               ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function AdminApp() {
+  const [tab, setTab] = useState('overview');
+  const T = useCallback((key) => LANG['en'][key] || key, []);
+
+  return (
+    <>
+      <aside id="sidebar">
+        <div className="brand">
+          <div className="brand-text"><div className="brand-name">SIERRA ESTATES 3.0</div><div className="brand-sub">INTELLIGENCE OS</div></div>
+        </div>
+        <div style={{padding:8}}>
+          <div className="nav-item active" style={{color:'var(--gold-lt)'}}>🏠 Telemetry Dashboard</div>
+        </div>
+      </aside>
+      <main id="main">
+        <div id="topbar">
+          <h1 className="topbar-title">Overview</h1>
+        </div>
+        <div id="content"><OverviewPage T={T}/></div>
+      </main>
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<AdminApp/>);
+</script>
+</body>
+</html>

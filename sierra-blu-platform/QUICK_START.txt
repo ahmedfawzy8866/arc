@@ -1,0 +1,57 @@
+╔══════════════════════════════════════════════════════════════════════╗
+║          SIERRA BLU REALTY V12.0 - REPO SYNC SETUP                  ║
+║                        READY TO GO                                   ║
+╚══════════════════════════════════════════════════════════════════════╝
+
+📥 DOWNLOAD THIS:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   ✅ install.sh
+   (from /mnt/user-data/outputs)
+
+🚀 RUN THIS COMMAND:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   cd ~/path/to/sierra-blu-realty-v12
+   bash ~/Downloads/install.sh
+
+⏱️ TIME: ~2 minutes
+❓ INTERACTION: None (fully automatic)
+
+✅ WHAT YOU GET:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   ✓ .claude/sync-repos.md          (Claude Code task)
+   ✓ scripts/sync-repos.sh          (Manual sync tool)
+   ✓ .github/workflows/sync-repos.yml (Auto Monday checks)
+   ✓ libs/motion-principles         (Cloned)
+   ✓ libs/taste-skill               (Cloned)
+   ✓ libs/impeccable                (Cloned)
+   ✓ reports/sync/                  (Reports saved here)
+
+📋 AFTER SETUP:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   1. git add .
+   2. git commit -m "chore: add repo sync"
+   3. git push
+
+🤖 AUTOMATIC (Every Monday):
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   GitHub Actions checks all 3 repos
+   Reports in Actions tab
+   Issue created if breaking changes found
+
+🔍 MANUAL SYNC (When needed):
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   ./scripts/sync-repos.sh
+   Then: read .claude/sync-repos.md
+
+📊 OUTPUT:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   SYNC_REPORT.md
+   ├─ Latest version of each repo
+   ├─ Breaking changes (if any)
+   ├─ Type definition updates
+   ├─ Migration guide for Stage 8
+   └─ Action items
+
+That's it. Download install.sh and run it. Everything else is automatic.
+
+═══════════════════════════════════════════════════════════════════════

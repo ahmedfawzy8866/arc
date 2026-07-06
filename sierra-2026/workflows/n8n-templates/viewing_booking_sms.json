@@ -1,0 +1,16 @@
+{
+  "name": "Sierra Estates — Viewing Booking & SMS",
+  "nodes": [
+    {
+      "parameters": { "httpMethod": "POST", "path": "viewing-booking-request" },
+      "id": "119e0758-c0b8-4d57-b08e-17482811a001",
+      "name": "Booking Request Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [200, 300]
+    }
+  ],
+  "connections": {},
+  "active": false,
+  "settings": {}
+}

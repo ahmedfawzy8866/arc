@@ -1,0 +1,14 @@
+{
+  "name": "Sierra Blu Quiet Luxury",
+  "palette": {
+    "primary": "#031632",
+    "primaryContainer": "#1A2B48",
+    "secondary": "#C9A84C",
+    "secondarySoft": "#E9C176",
+    "surface": "#F8F9FA",
+    "surfaceContainer": "#F3F4F5",
+    "surfaceContainerHigh": "#E7E8E9",
+    "text": "#071422",
+    "textMuted": "#3A5570"
+  }
+}

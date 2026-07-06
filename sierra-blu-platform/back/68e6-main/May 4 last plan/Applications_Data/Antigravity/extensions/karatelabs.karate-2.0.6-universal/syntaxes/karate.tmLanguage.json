@@ -1,0 +1,361 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "karate",
+	"scopeName": "source.karate",
+	"patterns": [
+		{
+			"include": "#comment"
+		},
+		{
+			"include": "#tags"
+		},
+		{
+			"include": "#examples"
+		},		
+		{
+			"include": "#tableRow"
+		},	
+		{
+			"include": "#heading"
+		},
+		{
+			"include": "#step"
+		},
+		{
+			"include": "#docString"
+		},		
+		{
+			"include": "#other"
+		}									
+	],
+	"repository": {
+		"comment": {
+			"name": "comment.line",
+			"begin": "^\\s*#",
+			"end": "$"
+		},
+		"tags": {
+			"name": "entity.name.tag",
+			"begin": "^\\s*@",
+			"end": "$"			
+		},
+		"heading": {
+			"begin": "^\\s*(Scenario|Scenario Outline|Feature|Background):",
+			"end": "$",
+			"beginCaptures": {
+				"0": {
+					"name": "entity.other.attribute-name"
+				}
+			},
+			"contentName": "comment.block.documentation"
+		},
+		"examples": {
+			"begin": "^\\s*Examples:",
+			"end": "\\|\\s*$",
+			"beginCaptures": {
+				"0": {
+					"name": "entity.other.attribute-name"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "constant.language"
+				}
+			},
+			"patterns": [
+				{
+					"match": "(\\|)([^|]*)",
+					"captures": {
+						"1": {
+							"name": "constant.language"
+						},
+						"2": {
+							"name": "keyword.other.unit"
+						}
+					}
+				}																	
+			]
+		},
+		"tableRow": {
+			"name": "keyword.operator",
+			"begin": "^\\s*(?=\\|)",
+			"end": "$",
+			"patterns": [
+				{
+					"match": "(\\|)([^|]*)",
+					"captures": {
+						"1": {
+							"name": "constant.language"
+						},
+						"2": {
+							"name": "string.unquoted"
+						}
+					}
+				}																	
+			]					
+		},		
+		"step": {
+			"begin": "^\\s*(\\*|Given|When|Then|And|But)\\s+",
+			"end": "$",
+			"beginCaptures": {
+				"1": {
+					"name": "punctuation.definition.tag"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#method"
+				},
+				{
+					"include": "#match"
+				},									
+				{
+					"include": "#assignment"
+				},
+				{
+					"include": "#command"
+				},
+				{
+					"include": "#evalJs"
+				}				
+			]			
+		},
+		"method": {
+			"begin": "method\\s+",
+			"end": "$",
+			"contentName": "entity.other.attribute-name",
+			"beginCaptures": {
+				"0": {
+					"name": "string.regexp"
+				}
+			}	
+		},	
+		"match": {
+			"begin": "(match)\\s+(each\\s+)?",
+			"end": "$",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.unit"
+				},
+				"2": {
+					"name": "keyword"
+				}				
+			},
+			"patterns": [
+				{
+					"include": "#matchExpr"
+				}																	
+			]				
+		},			
+		"matchExpr": {
+			"begin": "\\S+",
+			"end": "\\s+([=!]=|contains any|contains deep|contains only deep|contains only|[!]?contains)\\s+(.*)",
+			"beginCaptures": {
+				"0": {
+					"name": "variable.name"
+				}			
+			},
+			"endCaptures": {
+				"1": {
+					"name": "constant.language"
+				},
+				"2": {
+					"patterns": [
+						{
+							"include": "#karateXml"
+						},						
+						{
+							"include": "#karateJson"
+						},
+						{
+							"include": "#gherkinPlaceholder"
+						},						
+						{
+							"include": "#karateJs"
+						}
+					]
+				}				
+			}			
+		},		
+		"assignment": {
+			"begin": "(\\w+)\\s+(\\w+)\\s+(=)",
+			"end": "$",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword"
+				},
+				"2": {
+					"name": "keyword.other.unit"
+				},
+				"3": {
+					"name": "keyword.operator"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#karateXml"
+				},				
+				{
+					"include": "#karateJson"
+				},
+				{
+					"include": "#karateJsonPath"
+				},
+				{
+					"include": "#gherkinPlaceholder"
+				},								
+				{
+					"include": "#karateJs"
+				}							
+			]			
+		},
+		"command": {
+			"begin": "(\\w+)\\s+",
+			"end": "$",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword"
+				}
+			},			
+			"patterns": [
+				{
+					"include": "#karateXml"
+				},				
+				{
+					"include": "#karateJson"
+				},
+				{
+					"include": "#gherkinPlaceholder"
+				},				
+				{
+					"include": "#karateJs"
+				}							
+			]			
+		},
+		"evalJs": {
+			"begin": "(?=\\w+\\S)",
+			"end": "$",		
+			"patterns": [
+				{
+					"include": "#gherkinPlaceholder"
+				},					
+				{
+					"include": "#karateJs"
+				}							
+			]
+		},
+		"docString": {
+			"begin": "\\s*[\"]{3}",
+			"end": "[\"]{3}",
+			"beginCaptures": {
+				"0": {
+					"name": "keyword.operator"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "keyword.operator"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#karateXmlMulti"
+				},				
+				{
+					"include": "#karateJsonMulti"
+				},
+				{
+					"include": "#karateJsMulti"
+				}
+			]
+		},		
+		"karateJson": {
+			"begin": "(?=\\s*\\{|\\[)",
+			"end": "$",
+			"contentName": "meta.embedded.block.json",
+			"patterns": [
+				{
+					"include": "source.json.karate"
+				}
+			]
+		},
+		"karateJsonPath": {
+			"begin": "(?=.+\\[\\?)",
+			"end": "$",	
+			"contentName": "meta.embedded.block.json",
+			"patterns": [
+				{
+					"include": "source.json"
+				}
+			]			
+		},
+		"karateXml": {
+			"begin": "(?=<)",
+			"end": "$",
+			"contentName": "meta.embedded.block.xml",
+			"patterns": [
+				{
+					"include": "text.xml"
+				}
+			]
+		},		
+		"karateJsonMulti": {
+			"begin": "\\s*(?=\\{|\\[)",
+			"end": "(?=[\"]{3})",
+			"contentName": "meta.embedded.block.json",
+			"patterns": [
+				{
+					"include": "source.json.karate"
+				}
+			]
+		},
+		"karateXmlMulti": {
+			"begin": "\\s*(?=<)",
+			"end": "(?=[\"]{3})",
+			"contentName": "meta.embedded.block.xml",
+			"patterns": [
+				{
+					"include": "text.xml"
+				}
+			]
+		},				
+		"karateJs": {		
+			"begin": "(?=.)",
+			"end": "$",									
+			"contentName": "meta.embedded.block.js",
+			"patterns": [
+				{
+					"include": "source.js"
+				}
+			]			
+		},
+		"karateJsMulti": {
+			"begin": "(?=.)",
+			"end": "(?=[\"]{3})",
+			"contentName": "meta.embedded.block.js",
+			"patterns": [
+				{
+					"include": "source.js"
+				}
+			]
+		},
+		"gherkinPlaceholder": {
+			"match": "(.*)(<[^>]+>)(.*)",
+			"captures": {
+				"1": {
+					"name": "variable"
+				},
+				"2": {
+					"name": "comment"
+				},
+				"3": {
+					"name": "variable"
+				}							
+			}
+		},
+		"other": {
+			"match": ".*",
+			"name": "comment"
+		}								
+	}
+}

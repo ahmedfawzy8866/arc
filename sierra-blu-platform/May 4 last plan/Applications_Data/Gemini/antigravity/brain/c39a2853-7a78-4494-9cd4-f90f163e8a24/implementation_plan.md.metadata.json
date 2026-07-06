@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Plan to integrate the Antigravity Intelligence Agent with the Telegram Bot, allowing the user to receive notifications and give natural language orders (e.g., 'Generate summary for lead X', 'Check legal risk for listing Y') directly from Telegram.",
+  "updatedAt": "2026-04-10T22:15:15.305478800Z",
+  "requestFeedback": true
+}

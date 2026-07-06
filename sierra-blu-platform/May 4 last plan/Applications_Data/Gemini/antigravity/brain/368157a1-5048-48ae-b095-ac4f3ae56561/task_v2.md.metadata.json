@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_TASK",
+  "summary": "Checklist for migrating the Sierra Blu project to H: and cleaning up the C: drive. Includes selective copying of source files and safe migration of heavy user directories.",
+  "updatedAt": "2026-04-11T02:49:32.909229800Z"
+}

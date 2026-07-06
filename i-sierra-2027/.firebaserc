@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "sierra-estates-prod",
+    "production": "sierra-estates-prod"
+  }
+}

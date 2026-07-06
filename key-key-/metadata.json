@@ -1,0 +1,8 @@
+{
+  "name": "Remix: Elevator Key NFC",
+  "description": "NFC Reader, Cloner and Emulation helper for elevator key fobs \u0026 smart access tags with custom frequency alarms and secure access logging.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

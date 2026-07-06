@@ -1,0 +1,6 @@
+{
+  "artifactType":  "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary":  "A comprehensive library of Stitch (UI) and Codex (Implementation) prompts for the Sierra Blu Realty platform. Includes prompts for Login, Dashboard, CRM, Listings, and Data Sync, along with test verification steps for each.",
+  "updatedAt":  "2026-04-03T15:54:16.064020800Z",
+  "version":  "1"
+}

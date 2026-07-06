@@ -1,0 +1,9 @@
+{
+  "summary": "Global agent operational mandate for auto-approval of terminal commands and access requests after a 15-second timeout.",
+  "lastUpdated": "2026-04-05T02:17:00Z",
+  "references": [
+    {
+      "source": "User mandate during conversation af634806-74b8-476a-9d2b-69d367d79b5d"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://docs.openclaw.ai/schema/openclaw.json",
+  "agent": {
+    "model": "gemini/gemini-2.5-pro",
+    "fallbackModel": "gemini/gemini-2.5-flash",
+    "maxTokens": 4096,
+    "thinking": "medium"
+  },
+  "agents": {
+    "defaults": {
+      "workspace": "./openclaw/workspace",
+      "sandbox": {
+        "mode": "non-main"
+      }
+    }
+  },
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "dmPolicy": "pairing",
+      "allowFrom": [],
+      "botToken": "${TELEGRAM_BOT_TOKEN}"
+    },
+    "whatsapp": {
+      "enabled": true,
+      "dmPolicy": "pairing",
+      "allowFrom": [],
+      "phoneNumber": "${WHATSAPP_PHONE_NUMBER}"
+    }
+  },
+  "heartbeat": {
+    "enabled": true,
+    "interval": "15m",
+    "tasks": [
+      "Check for new lead messages and respond within SLA",
+      "Review pending follow-ups and send reminders",
+      "Sync Property Finder feed status"
+    ]
+  },
+  "skills": [
+    "gog",
+    "tavily-search",
+    "summarize",
+    "whatsapp-cli",
+    "agent-browser",
+    "github",
+    "mcporter",
+    "n8n-workflow"
+  ]
+}

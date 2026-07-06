@@ -1,0 +1,31 @@
+{
+  "globalDependencies": [".env.local", ".env"],
+  "pipeline": {
+    "dev": {
+      "cache": false,
+      "interactive": true
+    },
+    "build": {
+      "outputs": [".next/**", "dist/**", "build/**"],
+      "dependsOn": ["^build"],
+      "cache": true
+    },
+    "lint": {
+      "outputs": [".eslintcache"],
+      "cache": true
+    },
+    "test": {
+      "outputs": ["coverage/**"],
+      "cache": true,
+      "dependsOn": ["^build"]
+    },
+    "test:ci": {
+      "outputs": ["coverage/**"],
+      "cache": true,
+      "dependsOn": ["^build"]
+    },
+    "type-check": {
+      "cache": true
+    }
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "colors": {
+    "navy": {
+      "900": { "value": "#050E1F", "type": "color" },
+      "800": { "value": "#0A1A3A", "type": "color" },
+      "700": { "value": "#122245", "type": "color" }
+    },
+    "surface": {
+      "default": { "value": "#122245", "type": "color" },
+      "alt": { "value": "#1A2A4E", "type": "color" }
+    },
+    "gold": {
+      "700": { "value": "#A67C2E", "type": "color" },
+      "500": { "value": "#C9A24A", "type": "color" },
+      "400": { "value": "#D4B26A", "type": "color" },
+      "glow": { "value": "rgba(201, 162, 74, 0.35)", "type": "color" }
+    },
+    "neutral": {
+      "foreground": { "value": "#F8FAFC", "type": "color" },
+      "offwhite": { "value": "#F8F8F8", "type": "color" },
+      "mist": { "value": "#DFE3ED", "type": "color" },
+      "silver": { "value": "#8A93AB", "type": "color" },
+      "blueGray": { "value": "#4E5872", "type": "color" }
+    },
+    "glass": {
+      "bg": { "value": "rgba(10, 26, 58, 0.55)", "type": "color" },
+      "border": { "value": "rgba(201, 162, 74, 0.18)", "type": "color" }
+    }
+  },
+  "typography": {
+    "fontFamily": {
+      "display": { "value": "Playfair Display, serif", "type": "fontFamilies" },
+      "body": { "value": "Inter, system-ui, sans-serif", "type": "fontFamilies" }
+    },
+    "letterSpacing": {
+      "luxury": { "value": "0.12em", "type": "letterSpacing" },
+      "premium": { "value": "-0.02em", "type": "letterSpacing" },
+      "label": { "value": "0.45em", "type": "letterSpacing" },
+      "wide": { "value": "0.3em", "type": "letterSpacing" }
+    },
+    "fontSize": {
+      "hero": { "value": "9rem", "type": "fontSizes" },
+      "sectionTitle": { "value": "4.5rem", "type": "fontSizes" },
+      "subSection": { "value": "3rem", "type": "fontSizes" },
+      "cardTitle": { "value": "1.5rem", "type": "fontSizes" },
+      "body": { "value": "1rem", "type": "fontSizes" },
+      "label": { "value": "10px", "type": "fontSizes" },
+      "micro": { "value": "9px", "type": "fontSizes" },
+      "tiny": { "value": "8px", "type": "fontSizes" }
+    }
+  },
+  "spacing": {
+    "sectionPadding": {
+      "sm": { "value": "7rem", "type": "spacing" },
+      "md": { "value": "10rem", "type": "spacing" }
+    },
+    "containerMax": { "value": "80rem", "type": "spacing" },
+    "cardRadius": { "value": "40px", "type": "borderRadius" },
+    "borderRadius": {
+      "sm": { "value": "0.5rem", "type": "borderRadius" },
+      "md": { "value": "1rem", "type": "borderRadius" },
+      "lg": { "value": "1.5rem", "type": "borderRadius" },
+      "xl": { "value": "2rem", "type": "borderRadius" },
+      "card": { "value": "2.5rem", "type": "borderRadius" }
+    },
+    "glassBlur": { "value": "32px", "type": "borderRadius" }
+  },
+  "shadows": {
+    "glass": { "value": "0 30px 100px rgba(0, 0, 0, 0.55)", "type": "boxShadow" },
+    "glassHover": { "value": "0 40px 120px rgba(0, 210, 211, 0.08)", "type": "boxShadow" },
+    "goldGlow": { "value": "0 0 20px rgba(200, 150, 26, 0.4)", "type": "boxShadow" },
+    "goldGlowStrong": { "value": "0 0 35px rgba(201, 162, 74, 0.35)", "type": "boxShadow" },
+    "cardHover": { "value": "0 40px 100px rgba(199, 159, 63, 0.25)", "type": "boxShadow" },
+    "buttonGlow": { "value": "0 4px 20px rgba(201, 162, 74, 0.35)", "type": "boxShadow" }
+  },
+  "motion": {
+    "easing": {
+      "luxury": { "value": [0.32, 0.72, 0, 1], "type": "other" },
+      "smooth": { "value": [0.22, 1, 0.36, 1], "type": "other" }
+    },
+    "duration": {
+      "sectionEntrance": { "value": 800, "type": "other" },
+      "cardHover": { "value": 400, "type": "other" },
+      "imageReveal": { "value": 700, "type": "other" },
+      "buttonPress": { "value": 200, "type": "other" },
+      "navTransition": { "value": 200, "type": "other" },
+      "luxuryScale": { "value": 1200, "type": "other" }
+    },
+    "blur": {
+      "entrance": { "value": "10px", "type": "other" },
+      "none": { "value": "0px", "type": "other" }
+    },
+    "scale": {
+      "hoverMax": { "value": 1.05, "type": "other" },
+      "buttonHover": { "value": 1.03, "type": "other" },
+      "buttonPress": { "value": 0.98, "type": "other" }
+    },
+    "stagger": {
+      "children": { "value": 0.1, "type": "other" },
+      "delay": { "value": 0.3, "type": "other" }
+    }
+  }
+}

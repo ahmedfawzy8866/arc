@@ -1,0 +1,28 @@
+{
+  "mcpServers": {
+    "sierra-blu": {
+      "command": "I:\\ProgramFiles\\npm\\openclaw.cmd",
+      "args": [
+        "mcp",
+        "serve",
+        "--url",
+        "ws://127.0.0.1:18789",
+        "--token",
+        "02b25ffca992d1128741c5fb58a34f8b680cfef51bfbec02"
+      ],
+      "env": {
+        "OPENCLAW_CONFIG_PATH": "I:\\my-app\\.openclaw\\openclaw.json",
+        "OPENCLAW_STATE_DIR": "I:\\my-app\\.openclaw"
+      }
+    },
+    "memory": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-memory",
+        "--path",
+        "I:\\my-app\\11_Core_Intelligence\\memory\\vault.json"
+      ]
+    }
+  }
+}

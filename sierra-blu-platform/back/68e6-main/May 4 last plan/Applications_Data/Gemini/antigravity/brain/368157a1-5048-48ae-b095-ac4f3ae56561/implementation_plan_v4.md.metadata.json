@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Plan to migrate application data for Cursor, VS Code, Gemini, ChatGPT, and Codex to the H: drive using directory junctions, and consolidate all agent skills and important documents into a future-proof archive.",
+  "updatedAt": "2026-04-11T03:07:12.831469200Z",
+  "requestFeedback": true
+}

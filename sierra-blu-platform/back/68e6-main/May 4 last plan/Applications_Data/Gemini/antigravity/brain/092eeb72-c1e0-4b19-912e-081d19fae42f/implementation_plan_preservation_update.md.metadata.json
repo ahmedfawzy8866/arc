@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Updated plan to consolidate project intelligence while strictly preserving personal files and system folders. This plan now excludes the H:\\sierr folder and other non-project directories from the cleanup.",
+  "updatedAt": "2026-04-10T17:12:17.703008100Z",
+  "requestFeedback": true
+}

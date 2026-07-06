@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_WALKTHROUGH",
+  "summary": "Comprehensive setup guide for integrating OpenClaw AI agent framework with Sierra Blu Realty. Covers:\n- What OpenClaw is and why it's relevant\n- All 5 configuration files created (SOUL.md, AGENTS.md, TOOLS.md, openclaw.json, .env.example)\n- Top 8 recommended skills from ClawHub/GitHub with descriptions\n- Step-by-step installation instructions for Windows\n- Telegram and WhatsApp bot configuration\n- Security best practices including DM pairing and sandbox mode\n- Architecture diagram showing the full integration flow\n- Next steps checklist",
+  "updatedAt": "2026-03-26T09:19:40.923449300Z"
+}

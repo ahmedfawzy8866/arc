@@ -1,0 +1,34 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // ------------------------------------------------------------------------
+    // 1️⃣ DATA COLLECTION WORKFLOW (Isolated)
+    // ------------------------------------------------------------------------
+    // The rawScrapeData collection is strictly for scraper bots.
+    // The frontend NEVER reads from or writes to this directly.
+    match /rawScrapeData/{document=**} {
+      // Only backend service accounts/admin can read/write this.
+      // Deny all requests coming from client SDKs (the frontend apps).
+      allow read, write: if false; 
+    }
+
+    // ------------------------------------------------------------------------
+    // 2️⃣ DATA PROCESSING WORKFLOW (Sierra / Liela Frontend)
+    // ------------------------------------------------------------------------
+    // The processedData collection contains clean data ready for the app.
+    match /processedData/{document=**} {
+      // Allow read for authenticated users on the site (or public, if you prefer).
+      // Example: Require the user to be logged in to view data.
+      allow read: if request.auth != null;
+      
+      // Only the backend (processData function) or Admins should be writing to this.
+      allow write: if false; 
+    }
+
+    // Default deny for anything else
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

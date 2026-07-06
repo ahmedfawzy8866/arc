@@ -1,0 +1,6 @@
+{
+  "artifactType":  "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary":  "Master context and plan that merges the information from all recent chats regarding the Sierra Blu Realty portal. It outlines the tech stack, the design system, features, and Next.js / OpenClaw specific configurations.",
+  "updatedAt":  "2026-04-03T08:12:38.207735100Z",
+  "requestFeedback":  true
+}

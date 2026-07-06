@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_WALKTHROUGH",
+  "summary": "Walkthrough of the resolution for the Next.js `_document` error and port conflict. Includes details on the build cache purge, process cleanup, and two critical TypeScript fixes that were blocking the build.",
+  "updatedAt": "2026-04-09T05:16:24.297531300Z"
+}

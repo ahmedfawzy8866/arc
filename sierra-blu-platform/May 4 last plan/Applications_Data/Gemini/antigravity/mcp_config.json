@@ -1,0 +1,140 @@
+{
+  "mcpServers": {
+    "firebase-mcp-server": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "firebase-tools@latest",
+        "mcp"
+      ]
+    },
+    "gmp-code-assist": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@googlemaps/code-assist-mcp@latest"
+      ],
+      "env": {
+        "SOURCE": "antigravity"
+      },
+      "disabled": false
+    },
+    "chrome-devtools-mcp": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "chrome-devtools-mcp@latest"
+      ],
+      "disabledTools": [
+        "performance_stop_trace"
+      ]
+    },
+    "genkit-mcp-server": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "genkit-cli@^1.28.0",
+        "mcp",
+        "--explicitProjectRoot",
+        "--no-update-notification",
+        "--non-interactive"
+      ]
+    },
+    "sequential-thinking": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ]
+    },
+    "gke-oss": {
+      "command": "go",
+      "args": [
+        "run",
+        "github.com/GoogleCloudPlatform/gke-mcp@latest"
+      ]
+    },
+    "clickhouse": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://mcp.clickhouse.cloud/mcp"
+      ]
+    },
+    "arize-tracing-assistant": {
+      "command": "uvx",
+      "args": [
+        "arize-tracing-assistant@latest"
+      ]
+    },
+    "mcp-toolbox-for-databases": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@toolbox-sdk/server@>=0.26.0",
+        "--tools-file=curl -L -u \"api_key:ROOT-SITE-ADMINISTRATOR-PASSWORD\" 'http(s)://HOSTNAME:ADMINISTRATION-PORT/manage'",
+        "--stdio",
+        "--user-agent-metadata",
+        "antigravity"
+      ]
+    },
+    "github-mcp-server": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "-e",
+        "GITHUB_PERSONAL_ACCESS_TOKEN",
+        "ghcr.io/github/github-mcp-server"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "curl -L -u \"api_key:ROOT-SITE-ADMINISTRATOR-PASSWORD\" 'http(s)://HOSTNAME:ADMINISTRATION-PORT/manage'"
+      }
+    },
+    "figma-dev-mode-mcp-server": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "http://127.0.0.1:3845/sse"
+      ]
+    },
+    "linear-mcp-server": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://mcp.linear.app/sse"
+      ]
+    },
+    "StitchMCP": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://stitch.googleapis.com/mcp",
+        "--header",
+        "X-Goog-Api-Key: AQ.Ab8RN6JzJj-BUilzRQRBOQBU9rOwxdiWRI63sBPaNjropke_ig"
+      ]
+    },
+    "netlify": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@netlify/mcp"
+      ],
+      "env": {
+        "NETLIFY_PERSONAL_ACCESS_TOKEN": "nfp_c4daq33eb6yXkLguAErY5Fv2Ua71RibR1570"
+      }
+    },
+    "prisma-mcp-server": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "prisma",
+        "mcp"
+      ]
+    }
+  }
+}

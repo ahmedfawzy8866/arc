@@ -1,0 +1,6 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Plan to create a clean, V2 copy of the Sierra Blu project on the H: drive and migrate non-essential files from C: to reclaim disk space. This includes a selective copy of source files and a safe migration of large user directories.",
+  "updatedAt": "2026-04-11T02:49:21.660495500Z",
+  "requestFeedback": true
+}

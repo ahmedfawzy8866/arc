@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "noEmit": true,
+    "strict": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "baseUrl": ".",
+    "paths": {
+      "@motion/*": ["./libs/motion-principles/src/*"],
+      "@taste/*": ["./libs/taste-skill/src/*"],
+      "@impeccable/*": ["./libs/impeccable/src/*"]
+    }
+  },
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules", "libs/impeccable/src/detect-antipatterns.mjs"]
+}

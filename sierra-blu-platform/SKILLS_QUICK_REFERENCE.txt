@@ -1,0 +1,302 @@
+═══════════════════════════════════════════════════════════════════════════════
+  SIERRA BLU STAGE 9-10 — AWESOME-CLAUDE-SKILLS QUICK REFERENCE
+═══════════════════════════════════════════════════════════════════════════════
+
+REPOTREE STRUCTURE:
+awesome-claude-skills/
+├── mcp-builder/                    ← Use for MCP server architecture
+├── document-skills/
+│   ├── docx/                       ← Use for proposal generation
+│   ├── pdf/                        ← Use for PDF merging/signing
+│   ├── pptx/                       ← (Not needed for S9-10)
+│   └── xlsx/                       ← Use for deal summary CSVs
+├── theme-factory/                  ← Use for Quiet Luxury styling
+├── internal-comms/                 ← Use for Leila's messaging templates
+├── artifacts-builder/              ← Use for WhatsApp interactive cards
+├── invoice-organizer/              ← Use for deal filing
+├── composio-skills/
+│   ├── docusign-automation/        ← Use for e-signature
+│   ├── stripe-automation/          ← Use for payments
+│   └── [40+ other integrations]
+└── [other skills - not critical for S9-10]
+
+───────────────────────────────────────────────────────────────────────────────
+STAGE 9 → MCP BUILDER USAGE
+───────────────────────────────────────────────────────────────────────────────
+
+File: awesome-claude-skills/mcp-builder/SKILL.md
+Used For: Building custom MCP servers
+
+4 Servers You'll Build:
+1. sierra-deals.mcp.ts           → Deal orchestration (create, update, close)
+2. whatsapp-messaging.mcp.ts     → Send WhatsApp messages & documents
+3. docusign-signing.mcp.ts       → E-signature workflows
+4. stripe-payments.mcp.ts        → Process earnest money & deposits
+
+Load & Follow: 
+→ Phase 1: Deep Research (understand agent-centric design)
+→ Phase 2: Implementation (code each MCP server)
+→ Phase 3: Review (code quality checklist)
+→ Phase 4: Evaluation (create test scenarios)
+
+Key Section: "Tool Selection" & "Input/Output Design"
+These will guide your MCP tool signatures.
+
+───────────────────────────────────────────────────────────────────────────────
+STAGE 9 → DOCUMENT SKILLS USAGE
+───────────────────────────────────────────────────────────────────────────────
+
+File: awesome-claude-skills/document-skills/
+Used For: Generate, merge, sign documents
+
+DOCX Subfolder (for proposal creation):
+→ Create proposal template with Leila's branding
+→ Inject lead + property + terms data
+→ Export as DOCX or convert to PDF
+
+PDF Subfolder (for signing & merging):
+→ After Docusign, download signed PDF
+→ Merge multiple PDFs (offer + terms + closing checklist)
+→ Archive final signed documents
+
+XLSX Subfolder (for deal summaries):
+→ Export deal list as CSV/XLSX
+→ "YYYY-MM-DD [BuyerName] - Deal - [PropertyName]"
+→ Share with accountant/team
+
+Key Task: Build proposal-generator.ts
+→ Load template DOCX → Inject variables → Apply theme → Export
+
+───────────────────────────────────────────────────────────────────────────────
+STAGE 9 → THEME FACTORY USAGE
+───────────────────────────────────────────────────────────────────────────────
+
+File: awesome-claude-skills/theme-factory/SKILL.md
+Used For: Apply consistent Quiet Luxury styling to documents
+
+Custom Theme Definition (Sierra Blu):
+{
+  "name": "Sierra Blu Quiet Luxury",
+  "colors": {
+    "primary": "#0A1628",      // Midnight Navy
+    "accent": "#C9A84C",        // Gold
+    "background": "#F5F3F0",    // Off-white
+    "text": "#2C2C2A"            // Charcoal
+  },
+  "fonts": {
+    "header": "Cormorant Garamond",
+    "body": "Jost"
+  }
+}
+
+Apply To:
+→ Proposal PDFs (header, footer, accents)
+→ Offer letters (headers, signature lines)
+→ Closing checklists (dividers, highlights)
+→ WhatsApp message artifacts
+
+Key: Consistency across all client-facing documents
+
+───────────────────────────────────────────────────────────────────────────────
+STAGE 9 → INTERNAL COMMS USAGE
+───────────────────────────────────────────────────────────────────────────────
+
+File: awesome-claude-skills/internal-comms/SKILL.md
+Used For: Template Leila's messages to leads
+
+Adapt for Sierra Blu:
+
+File: stage-9-messages.ts
+├── offerAccepted
+│   └── "🎉 Congratulations! Your offer for [property] accepted!"
+├── documentReady
+│   └── "Documents ready for review... 📄"
+├── signingComplete
+│   └── "✨ Congratulations! Moving to closing..."
+├── paymentProcessed
+│   └── "Earnest money received. Next: appraisal..."
+└── closingReminder
+    └── "3 days to closing. Final walkthrough scheduled..."
+
+Key: Messages should feel like Leila is personally reaching out
+→ Warm, professional, knowledgeable, luxury-aligned
+→ Include next steps & contact info
+→ Use WhatsApp-friendly formatting
+
+───────────────────────────────────────────────────────────────────────────────
+STAGE 9 → ARTIFACTS BUILDER USAGE
+───────────────────────────────────────────────────────────────────────────────
+
+File: awesome-claude-skills/artifacts-builder/
+Used For: Create interactive visual content for WhatsApp
+
+Examples:
+1. Proposal Summary Card
+   ├── Property image
+   ├── Offer amount + terms
+   ├── Timeline
+   └── "View full proposal" button → proposalLink
+
+2. Signing Status Dashboard
+   ├── Doc 1: ✓ Signed
+   ├── Doc 2: ⏳ Pending
+   ├── Doc 3: ⏳ Pending
+   └── "Complete signing" button → docusignLink
+
+3. Closing Countdown
+   ├── Days to closing: 14
+   ├── Next milestone: Appraisal (5 days)
+   ├── Walkthrough: 10 days
+   └── "View calendar" button
+
+Key: Mobile-optimized, responsive, WhatsApp-friendly
+
+───────────────────────────────────────────────────────────────────────────────
+STAGE 9 → COMPOSIO INTEGRATIONS
+───────────────────────────────────────────────────────────────────────────────
+
+File: awesome-claude-skills/composio-skills/
+
+Critical Integrations:
+
+1. DOCUSIGN (docusign-automation/)
+   Use For: Send documents for e-signature
+   Methods:
+   → initiate_envelope(document, recipients, callback_url)
+   → get_signature_status(envelope_id)
+   → download_signed_document(envelope_id)
+
+2. STRIPE (stripe-automation/)
+   Use For: Process earnest money & commissions
+   Methods:
+   → create_payment_intent(amount, lead_id)
+   → process_transaction(intent_id)
+   → refund_payment(transaction_id)
+
+3. SLACK (if using - optional)
+   Use For: Notify team of closed deals
+   Methods:
+   → send_message(channel, message)
+   → send_notification(target, alert)
+
+Setup:
+→ Get Composio API key
+→ Add Docusign + Stripe credentials
+→ Create wrapper adapters:
+   /composio/docusign.adapter.ts
+   /composio/stripe.adapter.ts
+
+───────────────────────────────────────────────────────────────────────────────
+STAGE 9 → INVOICE ORGANIZER USAGE
+───────────────────────────────────────────────────────────────────────────────
+
+File: awesome-claude-skills/invoice-organizer/SKILL.md
+Used For: Archive & organize completed deals
+
+Adapt Pattern for Sierra Blu:
+
+Naming Convention:
+YYYY-MM-DD [BuyerName] - Deal - [PropertyName].pdf
+
+Examples:
+2025-05-15 Ahmed El-Masri - Deal - Villa New Cairo - Signed.pdf
+2025-05-10 Fatima Hassan - Deal - NAC Tower Apt 1205 - Final.pdf
+
+Folder Structure:
+/deals/2025/
+├── May/
+│   ├── ahmed-el-masri-villa/
+│   │   ├── proposal.pdf
+│   │   ├── offer-letter.pdf
+│   │   ├── signed-agreement.pdf
+│   │   └── closing-docs.pdf
+│   └── fatima-hassan-apartment/
+│       └── ...
+└── June/
+    └── ...
+
+CSV Export (deals-summary-2025-05.csv):
+Date,Buyer,Property,Amount,Status,FilePath
+2025-05-15,Ahmed El-Masri,Villa New Cairo,18500000,Closed,/deals/2025/May/...
+2025-05-10,Fatima Hassan,NAC Tower Apt 1205,12200000,Closed,/deals/2025/May/...
+
+Use For:
+→ Compliance & audit trails
+→ Tax reporting
+→ Team dashboard
+→ Leila's learning data
+
+───────────────────────────────────────────────────────────────────────────────
+IMPLEMENTATION CHECKLIST
+───────────────────────────────────────────────────────────────────────────────
+
+Session 2 (Document Generation):
+☐ Read: awesome-claude-skills/document-skills/docx/SKILL.md
+☐ Read: awesome-claude-skills/theme-factory/SKILL.md
+☐ Create: proposal-template.docx
+☐ Create: sierra-blu-quiet-luxury.json theme
+☐ Build: proposal-generator.ts
+
+Session 3 (Signing):
+☐ Read: Composio Docusign API docs
+☐ Get: Docusign API credentials
+☐ Create: /composio/docusign.adapter.ts
+☐ Build: docusign-signing.mcp.ts
+
+Session 4 (Payments):
+☐ Read: Composio Stripe API docs
+☐ Get: Stripe API credentials
+☐ Create: /composio/stripe.adapter.ts
+☐ Build: stripe-payments.mcp.ts
+
+Session 5 (Orchestration):
+☐ Read: awesome-claude-skills/mcp-builder/SKILL.md (full)
+☐ Build: sierra-deals.mcp.ts
+☐ Build: whatsapp-messaging.mcp.ts
+☐ Implement: Full CloserAgent workflow
+
+Session 6 (Polish):
+☐ Read: awesome-claude-skills/internal-comms/SKILL.md
+☐ Create: stage-9-messages.ts
+☐ Read: awesome-claude-skills/invoice-organizer/SKILL.md
+☐ Implement: deal archival & filing
+☐ Test: Full S8→S9→S10 pipeline
+
+───────────────────────────────────────────────────────────────────────────────
+FILES YOU'LL CLONE INTO SIERRA BLU
+───────────────────────────────────────────────────────────────────────────────
+
+From awesome-claude-skills:
+
+📄 Core Skills to Copy:
+awesome-claude-skills/mcp-builder/                → /sierra-blu/references/
+awesome-claude-skills/document-skills/            → /sierra-blu/references/
+awesome-claude-skills/theme-factory/              → /sierra-blu/references/
+awesome-claude-skills/internal-comms/             → /sierra-blu/references/
+
+📚 For Reference (don't copy, just read):
+awesome-claude-skills/invoice-organizer/SKILL.md  → Read & adapt pattern
+awesome-claude-skills/artifacts-builder/          → Reference for UI patterns
+awesome-claude-skills/composio-skills/            → Reference API integrations
+
+───────────────────────────────────────────────────────────────────────────────
+NEXT STEP: SIGNAL WHEN READY
+───────────────────────────────────────────────────────────────────────────────
+
+When you're ready to start Stage 9 implementation:
+
+1. Save these 3 files to your project:
+   ✓ SIERRA_BLU_SKILLS_EXTRACTION.md
+   ✓ STAGE_9_IMPLEMENTATION_ROADMAP.md
+   ✓ SKILLS_QUICK_REFERENCE.txt (this file)
+
+2. Review MCP Builder + Document Skills guides
+
+3. Gather API credentials:
+   ✓ Docusign API key
+   ✓ Stripe API key
+   ✓ WhatsApp Business API key
+
+4. Let me know "S9 ready" and we'll kick off Session 1!
+
+═══════════════════════════════════════════════════════════════════════════════

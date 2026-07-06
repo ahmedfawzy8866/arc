@@ -1,0 +1,5 @@
+{
+  "artifactType":  "ARTIFACT_TYPE_TASK",
+  "summary":  "Track the progress of fixing \"activationEvents: *\" warnings in extension package.json files.",
+  "updatedAt":  "2026-03-07T06:18:49.657143Z"
+}

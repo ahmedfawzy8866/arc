@@ -1,0 +1,5 @@
+{
+  "artifactType":  "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary":  "A clean architectural split between Frontend (User/Claude) and Backend (Antigravity). Defines the skeleton structure, API contracts, and immediate task assignments for the Sierra Blu Realty V12.0 platform.",
+  "updatedAt":  "2026-04-27T23:15:08.205669300Z"
+}

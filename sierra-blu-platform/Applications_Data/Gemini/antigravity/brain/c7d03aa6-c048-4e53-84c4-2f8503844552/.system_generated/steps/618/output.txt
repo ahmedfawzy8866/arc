@@ -1,0 +1,759 @@
+filter: >-
+  resource.type="cloud_function" OR (resource.type="cloud_run_revision" AND
+  labels."goog-managed-by"="cloudfunctions")
+order: desc
+page_size: 50
+entries:
+  - timestamp: '2026-03-22T14:57:24.787805141Z'
+    severity: NOTICE
+    function: ssrsierrablusystem59b22
+    message: >-
+      {"@type":"type.googleapis.com/google.cloud.audit.AuditLog","status":{},"authenticationInfo":{"principalEmail":"A.fawzy8866@gmail.com","principalSubject":"user:A.fawzy8866@gmail.com","oauthInfo":{"oauthClientId":"563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com"}},"requestMetadata":{"callerIp":"102.40.92.195","callerSuppliedUserAgent":"FirebaseCLI/15.11.0
+      agent-name/antigravity,gzip(gfe),gzip(gfe)","requestAttributes":{"time":"2026-03-22T14:57:23.437639495Z","auth":{}},"destinationAttributes":{}},"serviceName":"cloudfunctions.googleapis.com","methodName":"google.cloud.functions.v2.FunctionService.CreateFunction","authorizationInfo":[{"resource":"projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22","permission":"cloudfunctions.functions.create","granted":true,"resourceAttributes":{"service":"cloudfunctions.googleapis.com","name":"projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22","type":"cloudfunctions.googleapis.com/Function"},"permissionType":"ADMIN_WRITE"}],"resourceName":"projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22","request":{"function":{"service_config":{"max_instance_request_concurrency":80,"available_cpu":"1","available_memory":"256Mi"},"name":"projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22","labels":{"firebase-functions-codebase":"firebase-frameworks-sierra-blu-system-59b22","deployment-tool":"cli-firebase","firebase-functions-hash":"4c60dc7e0712d94893a0aa995020c30024d29fa5"},"build_config":{"source":{},"runtime":"nodejs24","entry_point":"ssrsierrablusystem59b22"}},"@type":"type.googleapis.com/google.cloud.functions.v2.CreateFunctionRequest","parent":"projects/sierra-blu-system-59b22/locations/us-central1"},"response":{"@type":"type.googleapis.com/google.longrunning.Operation"},"resourceLocation":{"currentLocations":["us-central1"]}}
+    payload:
+      '@type': type.googleapis.com/google.cloud.audit.AuditLog
+      status: {}
+      authenticationInfo:
+        principalEmail: A.fawzy8866@gmail.com
+        principalSubject: 'user:A.fawzy8866@gmail.com'
+        oauthInfo:
+          oauthClientId: >-
+            563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com
+      requestMetadata:
+        callerIp: 102.40.92.195
+        callerSuppliedUserAgent: 'FirebaseCLI/15.11.0 agent-name/antigravity,gzip(gfe),gzip(gfe)'
+        requestAttributes:
+          time: '2026-03-22T14:57:23.437639495Z'
+          auth: {}
+        destinationAttributes: {}
+      serviceName: cloudfunctions.googleapis.com
+      methodName: google.cloud.functions.v2.FunctionService.CreateFunction
+      authorizationInfo:
+        - resource: >-
+            projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22
+          permission: cloudfunctions.functions.create
+          granted: true
+          resourceAttributes:
+            service: cloudfunctions.googleapis.com
+            name: >-
+              projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22
+            type: cloudfunctions.googleapis.com/Function
+          permissionType: ADMIN_WRITE
+      resourceName: >-
+        projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22
+      request:
+        function:
+          service_config:
+            max_instance_request_concurrency: 80
+            available_cpu: '1'
+            available_memory: 256Mi
+          name: >-
+            projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22
+          labels:
+            firebase-functions-codebase: firebase-frameworks-sierra-blu-system-59b22
+            deployment-tool: cli-firebase
+            firebase-functions-hash: 4c60dc7e0712d94893a0aa995020c30024d29fa5
+          build_config:
+            source: {}
+            runtime: nodejs24
+            entry_point: ssrsierrablusystem59b22
+        '@type': type.googleapis.com/google.cloud.functions.v2.CreateFunctionRequest
+        parent: projects/sierra-blu-system-59b22/locations/us-central1
+      response:
+        '@type': type.googleapis.com/google.longrunning.Operation
+      resourceLocation:
+        currentLocations:
+          - us-central1
+    log_name: projects/sierra-blu-system-59b22/logs/cloudaudit.googleapis.com%2Factivity
+    trace: null
+    span_id: null
+  - timestamp: '2026-03-22T14:58:14.799795877Z'
+    severity: ERROR
+    function: ssrsierrablusystem59b22
+    message: >-
+      {"@type":"type.googleapis.com/google.cloud.audit.AuditLog","status":{"code":3,"message":"Build
+      failed with status: FAILURE. Could not build the function due to a missing
+      permission on the build service account. If you didn't revoke that
+      permission explicitly, this could be caused by a change in the
+      organization policies. Please refer to the following documentation for
+      more details and resolution:
+      https://cloud.google.com/functions/docs/troubleshooting#build-service-account\n
+      You can also view the logs at
+      https://console.cloud.google.com/cloud-build/builds;region=us-central1/321dba81-81f4-4381-b75b-8b69c307e543?project=894977812589.\n"},"authenticationInfo":{"principalEmail":"A.fawzy8866@gmail.com","principalSubject":"user:A.fawzy8866@gmail.com","oauthInfo":{"oauthClientId":"563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com"}},"requestMetadata":{"requestAttributes":{},"destinationAttributes":{}},"serviceName":"cloudfunctions.googleapis.com","methodName":"google.cloud.functions.v2.FunctionService.CreateFunction","resourceName":"projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22","resourceLocation":{"currentLocations":["us-central1"]}}
+    payload:
+      '@type': type.googleapis.com/google.cloud.audit.AuditLog
+      status:
+        code: 3
+        message: >
+          Build failed with status: FAILURE. Could not build the function due to
+          a missing permission on the build service account. If you didn't
+          revoke that permission explicitly, this could be caused by a change in
+          the organization policies. Please refer to the following documentation
+          for more details and resolution:
+          https://cloud.google.com/functions/docs/troubleshooting#build-service-account
+           You can also view the logs at https://console.cloud.google.com/cloud-build/builds;region=us-central1/321dba81-81f4-4381-b75b-8b69c307e543?project=894977812589.
+      authenticationInfo:
+        principalEmail: A.fawzy8866@gmail.com
+        principalSubject: 'user:A.fawzy8866@gmail.com'
+        oauthInfo:
+          oauthClientId: >-
+            563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com
+      requestMetadata:
+        requestAttributes: {}
+        destinationAttributes: {}
+      serviceName: cloudfunctions.googleapis.com
+      methodName: google.cloud.functions.v2.FunctionService.CreateFunction
+      resourceName: >-
+        projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22
+      resourceLocation:
+        currentLocations:
+          - us-central1
+    log_name: projects/sierra-blu-system-59b22/logs/cloudaudit.googleapis.com%2Factivity
+    trace: null
+    span_id: null
+  - timestamp: '2026-03-22T23:15:01.776542454Z'
+    severity: NOTICE
+    function: ssrsierrablusystem59b22
+    message: >-
+      {"@type":"type.googleapis.com/google.cloud.audit.AuditLog","status":{},"authenticationInfo":{"principalEmail":"A.fawzy8866@gmail.com","principalSubject":"user:A.fawzy8866@gmail.com","oauthInfo":{"oauthClientId":"563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com"}},"requestMetadata":{"callerIp":"102.40.92.195","callerSuppliedUserAgent":"FirebaseCLI/15.11.0
+      agent-name/antigravity,gzip(gfe),gzip(gfe)","requestAttributes":{"time":"2026-03-22T23:15:00.646023827Z","auth":{}},"destinationAttributes":{}},"serviceName":"cloudfunctions.googleapis.com","methodName":"google.cloud.functions.v2.FunctionService.UpdateFunction","authorizationInfo":[{"resource":"projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22","permission":"cloudfunctions.functions.update","granted":true,"resourceAttributes":{"service":"cloudfunctions.googleapis.com","name":"projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22","type":"cloudfunctions.googleapis.com/Function"},"permissionType":"ADMIN_WRITE"}],"resourceName":"projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22","request":{"@type":"type.googleapis.com/google.cloud.functions.v2.UpdateFunctionRequest","function":{"service_config":{"available_cpu":"1","max_instance_request_concurrency":80,"available_memory":"256Mi"},"name":"projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22","labels":{"firebase-functions-codebase":"firebase-frameworks-sierra-blu-system-59b22","firebase-functions-hash":"84f6345c95442d3569cbb4cb7629ade923bf4dd3","deployment-tool":"cli-firebase"},"build_config":{"entry_point":"ssrsierrablusystem59b22","runtime":"nodejs24","source":{}}},"update_mask":{"paths":["name","build_config.runtime","build_config.entry_point","build_config.source.storage_source.bucket","build_config.source.storage_source.object","build_config.environment_variables","build_config.source_token","service_config.environment_variables","service_config.ingress_settings","service_config.timeout_seconds","service_config.service_account_email","service_config.available_memory","service_config.min_instance_count","service_config.max_instance_count","service_config.max_instance_request_concurrency","service_config.available_cpu","service_config.vpc_connector","service_config.vpc_connector_egress_settings","service_config.direct_vpc_network_interface","service_config.direct_vpc_egress","labels"]}},"response":{"@type":"type.googleapis.com/google.longrunning.Operation"},"resourceLocation":{"currentLocations":["us-central1"]}}
+    payload:
+      '@type': type.googleapis.com/google.cloud.audit.AuditLog
+      status: {}
+      authenticationInfo:
+        principalEmail: A.fawzy8866@gmail.com
+        principalSubject: 'user:A.fawzy8866@gmail.com'
+        oauthInfo:
+          oauthClientId: >-
+            563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com
+      requestMetadata:
+        callerIp: 102.40.92.195
+        callerSuppliedUserAgent: 'FirebaseCLI/15.11.0 agent-name/antigravity,gzip(gfe),gzip(gfe)'
+        requestAttributes:
+          time: '2026-03-22T23:15:00.646023827Z'
+          auth: {}
+        destinationAttributes: {}
+      serviceName: cloudfunctions.googleapis.com
+      methodName: google.cloud.functions.v2.FunctionService.UpdateFunction
+      authorizationInfo:
+        - resource: >-
+            projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22
+          permission: cloudfunctions.functions.update
+          granted: true
+          resourceAttributes:
+            service: cloudfunctions.googleapis.com
+            name: >-
+              projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22
+            type: cloudfunctions.googleapis.com/Function
+          permissionType: ADMIN_WRITE
+      resourceName: >-
+        projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22
+      request:
+        '@type': type.googleapis.com/google.cloud.functions.v2.UpdateFunctionRequest
+        function:
+          service_config:
+            available_cpu: '1'
+            max_instance_request_concurrency: 80
+            available_memory: 256Mi
+          name: >-
+            projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22
+          labels:
+            firebase-functions-codebase: firebase-frameworks-sierra-blu-system-59b22
+            firebase-functions-hash: 84f6345c95442d3569cbb4cb7629ade923bf4dd3
+            deployment-tool: cli-firebase
+          build_config:
+            entry_point: ssrsierrablusystem59b22
+            runtime: nodejs24
+            source: {}
+        update_mask:
+          paths:
+            - name
+            - build_config.runtime
+            - build_config.entry_point
+            - build_config.source.storage_source.bucket
+            - build_config.source.storage_source.object
+            - build_config.environment_variables
+            - build_config.source_token
+            - service_config.environment_variables
+            - service_config.ingress_settings
+            - service_config.timeout_seconds
+            - service_config.service_account_email
+            - service_config.available_memory
+            - service_config.min_instance_count
+            - service_config.max_instance_count
+            - service_config.max_instance_request_concurrency
+            - service_config.available_cpu
+            - service_config.vpc_connector
+            - service_config.vpc_connector_egress_settings
+            - service_config.direct_vpc_network_interface
+            - service_config.direct_vpc_egress
+            - labels
+      response:
+        '@type': type.googleapis.com/google.longrunning.Operation
+      resourceLocation:
+        currentLocations:
+          - us-central1
+    log_name: projects/sierra-blu-system-59b22/logs/cloudaudit.googleapis.com%2Factivity
+    trace: null
+    span_id: null
+  - timestamp: '2026-03-22T23:15:39.472033903Z'
+    severity: ERROR
+    function: ssrsierrablusystem59b22
+    message: >-
+      {"@type":"type.googleapis.com/google.cloud.audit.AuditLog","status":{"code":3,"message":"Build
+      failed with status: FAILURE. Could not build the function due to a missing
+      permission on the build service account. If you didn't revoke that
+      permission explicitly, this could be caused by a change in the
+      organization policies. Please refer to the following documentation for
+      more details and resolution:
+      https://cloud.google.com/functions/docs/troubleshooting#build-service-account\n
+      You can also view the logs at
+      https://console.cloud.google.com/cloud-build/builds;region=us-central1/7a59b2e6-0a92-4e89-91c3-4ed9fe2a358a?project=894977812589.\n"},"authenticationInfo":{"principalEmail":"A.fawzy8866@gmail.com","principalSubject":"user:A.fawzy8866@gmail.com","oauthInfo":{"oauthClientId":"563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com"}},"requestMetadata":{"requestAttributes":{},"destinationAttributes":{}},"serviceName":"cloudfunctions.googleapis.com","methodName":"google.cloud.functions.v2.FunctionService.UpdateFunction","resourceName":"projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22","resourceLocation":{"currentLocations":["us-central1"]}}
+    payload:
+      '@type': type.googleapis.com/google.cloud.audit.AuditLog
+      status:
+        code: 3
+        message: >
+          Build failed with status: FAILURE. Could not build the function due to
+          a missing permission on the build service account. If you didn't
+          revoke that permission explicitly, this could be caused by a change in
+          the organization policies. Please refer to the following documentation
+          for more details and resolution:
+          https://cloud.google.com/functions/docs/troubleshooting#build-service-account
+           You can also view the logs at https://console.cloud.google.com/cloud-build/builds;region=us-central1/7a59b2e6-0a92-4e89-91c3-4ed9fe2a358a?project=894977812589.
+      authenticationInfo:
+        principalEmail: A.fawzy8866@gmail.com
+        principalSubject: 'user:A.fawzy8866@gmail.com'
+        oauthInfo:
+          oauthClientId: >-
+            563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com
+      requestMetadata:
+        requestAttributes: {}
+        destinationAttributes: {}
+      serviceName: cloudfunctions.googleapis.com
+      methodName: google.cloud.functions.v2.FunctionService.UpdateFunction
+      resourceName: >-
+        projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22
+      resourceLocation:
+        currentLocations:
+          - us-central1
+    log_name: projects/sierra-blu-system-59b22/logs/cloudaudit.googleapis.com%2Factivity
+    trace: null
+    span_id: null
+  - timestamp: '2026-03-23T14:45:14.996043109Z'
+    severity: NOTICE
+    function: ssrsierrablusystem59b22
+    message: >-
+      {"@type":"type.googleapis.com/google.cloud.audit.AuditLog","status":{},"authenticationInfo":{"principalEmail":"A.fawzy8866@gmail.com","principalSubject":"user:A.fawzy8866@gmail.com","oauthInfo":{"oauthClientId":"563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com"}},"requestMetadata":{"callerIp":"102.40.92.195","callerSuppliedUserAgent":"FirebaseCLI/15.11.0
+      agent-name/antigravity,gzip(gfe),gzip(gfe)","requestAttributes":{"time":"2026-03-23T14:45:13.993025107Z","auth":{}},"destinationAttributes":{}},"serviceName":"cloudfunctions.googleapis.com","methodName":"google.cloud.functions.v2.FunctionService.UpdateFunction","authorizationInfo":[{"resource":"projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22","permission":"cloudfunctions.functions.update","granted":true,"resourceAttributes":{"service":"cloudfunctions.googleapis.com","name":"projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22","type":"cloudfunctions.googleapis.com/Function"},"permissionType":"ADMIN_WRITE"}],"resourceName":"projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22","request":{"@type":"type.googleapis.com/google.cloud.functions.v2.UpdateFunctionRequest","function":{"labels":{"firebase-functions-hash":"a403b0054cf35e93dc92624a6c383dba1175a921","firebase-functions-codebase":"firebase-frameworks-sierra-blu-system-59b22","deployment-tool":"cli-firebase"},"service_config":{"available_cpu":"1","max_instance_request_concurrency":80,"available_memory":"256Mi"},"build_config":{"entry_point":"ssrsierrablusystem59b22","source":{},"runtime":"nodejs24"},"name":"projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22"},"update_mask":{"paths":["name","build_config.runtime","build_config.entry_point","build_config.source.storage_source.bucket","build_config.source.storage_source.object","build_config.environment_variables","build_config.source_token","service_config.environment_variables","service_config.ingress_settings","service_config.timeout_seconds","service_config.service_account_email","service_config.available_memory","service_config.min_instance_count","service_config.max_instance_count","service_config.max_instance_request_concurrency","service_config.available_cpu","service_config.vpc_connector","service_config.vpc_connector_egress_settings","service_config.direct_vpc_network_interface","service_config.direct_vpc_egress","labels"]}},"response":{"@type":"type.googleapis.com/google.longrunning.Operation"},"resourceLocation":{"currentLocations":["us-central1"]}}
+    payload:
+      '@type': type.googleapis.com/google.cloud.audit.AuditLog
+      status: {}
+      authenticationInfo:
+        principalEmail: A.fawzy8866@gmail.com
+        principalSubject: 'user:A.fawzy8866@gmail.com'
+        oauthInfo:
+          oauthClientId: >-
+            563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com
+      requestMetadata:
+        callerIp: 102.40.92.195
+        callerSuppliedUserAgent: 'FirebaseCLI/15.11.0 agent-name/antigravity,gzip(gfe),gzip(gfe)'
+        requestAttributes:
+          time: '2026-03-23T14:45:13.993025107Z'
+          auth: {}
+        destinationAttributes: {}
+      serviceName: cloudfunctions.googleapis.com
+      methodName: google.cloud.functions.v2.FunctionService.UpdateFunction
+      authorizationInfo:
+        - resource: >-
+            projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22
+          permission: cloudfunctions.functions.update
+          granted: true
+          resourceAttributes:
+            service: cloudfunctions.googleapis.com
+            name: >-
+              projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22
+            type: cloudfunctions.googleapis.com/Function
+          permissionType: ADMIN_WRITE
+      resourceName: >-
+        projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22
+      request:
+        '@type': type.googleapis.com/google.cloud.functions.v2.UpdateFunctionRequest
+        function:
+          labels:
+            firebase-functions-hash: a403b0054cf35e93dc92624a6c383dba1175a921
+            firebase-functions-codebase: firebase-frameworks-sierra-blu-system-59b22
+            deployment-tool: cli-firebase
+          service_config:
+            available_cpu: '1'
+            max_instance_request_concurrency: 80
+            available_memory: 256Mi
+          build_config:
+            entry_point: ssrsierrablusystem59b22
+            source: {}
+            runtime: nodejs24
+          name: >-
+            projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22
+        update_mask:
+          paths:
+            - name
+            - build_config.runtime
+            - build_config.entry_point
+            - build_config.source.storage_source.bucket
+            - build_config.source.storage_source.object
+            - build_config.environment_variables
+            - build_config.source_token
+            - service_config.environment_variables
+            - service_config.ingress_settings
+            - service_config.timeout_seconds
+            - service_config.service_account_email
+            - service_config.available_memory
+            - service_config.min_instance_count
+            - service_config.max_instance_count
+            - service_config.max_instance_request_concurrency
+            - service_config.available_cpu
+            - service_config.vpc_connector
+            - service_config.vpc_connector_egress_settings
+            - service_config.direct_vpc_network_interface
+            - service_config.direct_vpc_egress
+            - labels
+      response:
+        '@type': type.googleapis.com/google.longrunning.Operation
+      resourceLocation:
+        currentLocations:
+          - us-central1
+    log_name: projects/sierra-blu-system-59b22/logs/cloudaudit.googleapis.com%2Factivity
+    trace: null
+    span_id: null
+  - timestamp: '2026-03-23T14:45:50.800395568Z'
+    severity: ERROR
+    function: ssrsierrablusystem59b22
+    message: >-
+      {"@type":"type.googleapis.com/google.cloud.audit.AuditLog","status":{"code":3,"message":"Build
+      failed with status: FAILURE. Could not build the function due to a missing
+      permission on the build service account. If you didn't revoke that
+      permission explicitly, this could be caused by a change in the
+      organization policies. Please refer to the following documentation for
+      more details and resolution:
+      https://cloud.google.com/functions/docs/troubleshooting#build-service-account\n
+      You can also view the logs at
+      https://console.cloud.google.com/cloud-build/builds;region=us-central1/c1d22ff9-b1fc-4af6-a086-e1140faf9fbe?project=894977812589.\n"},"authenticationInfo":{"principalEmail":"A.fawzy8866@gmail.com","principalSubject":"user:A.fawzy8866@gmail.com","oauthInfo":{"oauthClientId":"563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com"}},"requestMetadata":{"requestAttributes":{},"destinationAttributes":{}},"serviceName":"cloudfunctions.googleapis.com","methodName":"google.cloud.functions.v2.FunctionService.UpdateFunction","resourceName":"projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22","resourceLocation":{"currentLocations":["us-central1"]}}
+    payload:
+      '@type': type.googleapis.com/google.cloud.audit.AuditLog
+      status:
+        code: 3
+        message: >
+          Build failed with status: FAILURE. Could not build the function due to
+          a missing permission on the build service account. If you didn't
+          revoke that permission explicitly, this could be caused by a change in
+          the organization policies. Please refer to the following documentation
+          for more details and resolution:
+          https://cloud.google.com/functions/docs/troubleshooting#build-service-account
+           You can also view the logs at https://console.cloud.google.com/cloud-build/builds;region=us-central1/c1d22ff9-b1fc-4af6-a086-e1140faf9fbe?project=894977812589.
+      authenticationInfo:
+        principalEmail: A.fawzy8866@gmail.com
+        principalSubject: 'user:A.fawzy8866@gmail.com'
+        oauthInfo:
+          oauthClientId: >-
+            563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com
+      requestMetadata:
+        requestAttributes: {}
+        destinationAttributes: {}
+      serviceName: cloudfunctions.googleapis.com
+      methodName: google.cloud.functions.v2.FunctionService.UpdateFunction
+      resourceName: >-
+        projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22
+      resourceLocation:
+        currentLocations:
+          - us-central1
+    log_name: projects/sierra-blu-system-59b22/logs/cloudaudit.googleapis.com%2Factivity
+    trace: null
+    span_id: null
+  - timestamp: '2026-03-23T16:07:31.818274094Z'
+    severity: NOTICE
+    function: ssrsierrablusystem59b22
+    message: >-
+      {"@type":"type.googleapis.com/google.cloud.audit.AuditLog","status":{},"authenticationInfo":{"principalEmail":"A.fawzy8866@gmail.com","principalSubject":"user:A.fawzy8866@gmail.com","oauthInfo":{"oauthClientId":"563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com"}},"requestMetadata":{"callerIp":"102.40.92.195","callerSuppliedUserAgent":"FirebaseCLI/15.11.0
+      agent-name/antigravity,gzip(gfe),gzip(gfe)","requestAttributes":{"time":"2026-03-23T16:07:30.816578245Z","auth":{}},"destinationAttributes":{}},"serviceName":"cloudfunctions.googleapis.com","methodName":"google.cloud.functions.v2.FunctionService.UpdateFunction","authorizationInfo":[{"resource":"projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22","permission":"cloudfunctions.functions.update","granted":true,"resourceAttributes":{"service":"cloudfunctions.googleapis.com","name":"projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22","type":"cloudfunctions.googleapis.com/Function"},"permissionType":"ADMIN_WRITE"}],"resourceName":"projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22","request":{"@type":"type.googleapis.com/google.cloud.functions.v2.UpdateFunctionRequest","function":{"service_config":{"available_cpu":"1","available_memory":"256Mi","max_instance_request_concurrency":80},"build_config":{"source":{},"entry_point":"ssrsierrablusystem59b22","runtime":"nodejs24"},"name":"projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22","labels":{"firebase-functions-hash":"2c937a12566396f74302f72ed983fb2d08052087","deployment-tool":"cli-firebase","firebase-functions-codebase":"firebase-frameworks-sierra-blu-system-59b22"}},"update_mask":{"paths":["name","build_config.runtime","build_config.entry_point","build_config.source.storage_source.bucket","build_config.source.storage_source.object","build_config.environment_variables","build_config.source_token","service_config.environment_variables","service_config.ingress_settings","service_config.timeout_seconds","service_config.service_account_email","service_config.available_memory","service_config.min_instance_count","service_config.max_instance_count","service_config.max_instance_request_concurrency","service_config.available_cpu","service_config.vpc_connector","service_config.vpc_connector_egress_settings","service_config.direct_vpc_network_interface","service_config.direct_vpc_egress","labels"]}},"response":{"@type":"type.googleapis.com/google.longrunning.Operation"},"resourceLocation":{"currentLocations":["us-central1"]}}
+    payload:
+      '@type': type.googleapis.com/google.cloud.audit.AuditLog
+      status: {}
+      authenticationInfo:
+        principalEmail: A.fawzy8866@gmail.com
+        principalSubject: 'user:A.fawzy8866@gmail.com'
+        oauthInfo:
+          oauthClientId: >-
+            563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com
+      requestMetadata:
+        callerIp: 102.40.92.195
+        callerSuppliedUserAgent: 'FirebaseCLI/15.11.0 agent-name/antigravity,gzip(gfe),gzip(gfe)'
+        requestAttributes:
+          time: '2026-03-23T16:07:30.816578245Z'
+          auth: {}
+        destinationAttributes: {}
+      serviceName: cloudfunctions.googleapis.com
+      methodName: google.cloud.functions.v2.FunctionService.UpdateFunction
+      authorizationInfo:
+        - resource: >-
+            projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22
+          permission: cloudfunctions.functions.update
+          granted: true
+          resourceAttributes:
+            service: cloudfunctions.googleapis.com
+            name: >-
+              projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22
+            type: cloudfunctions.googleapis.com/Function
+          permissionType: ADMIN_WRITE
+      resourceName: >-
+        projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22
+      request:
+        '@type': type.googleapis.com/google.cloud.functions.v2.UpdateFunctionRequest
+        function:
+          service_config:
+            available_cpu: '1'
+            available_memory: 256Mi
+            max_instance_request_concurrency: 80
+          build_config:
+            source: {}
+            entry_point: ssrsierrablusystem59b22
+            runtime: nodejs24
+          name: >-
+            projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22
+          labels:
+            firebase-functions-hash: 2c937a12566396f74302f72ed983fb2d08052087
+            deployment-tool: cli-firebase
+            firebase-functions-codebase: firebase-frameworks-sierra-blu-system-59b22
+        update_mask:
+          paths:
+            - name
+            - build_config.runtime
+            - build_config.entry_point
+            - build_config.source.storage_source.bucket
+            - build_config.source.storage_source.object
+            - build_config.environment_variables
+            - build_config.source_token
+            - service_config.environment_variables
+            - service_config.ingress_settings
+            - service_config.timeout_seconds
+            - service_config.service_account_email
+            - service_config.available_memory
+            - service_config.min_instance_count
+            - service_config.max_instance_count
+            - service_config.max_instance_request_concurrency
+            - service_config.available_cpu
+            - service_config.vpc_connector
+            - service_config.vpc_connector_egress_settings
+            - service_config.direct_vpc_network_interface
+            - service_config.direct_vpc_egress
+            - labels
+      response:
+        '@type': type.googleapis.com/google.longrunning.Operation
+      resourceLocation:
+        currentLocations:
+          - us-central1
+    log_name: projects/sierra-blu-system-59b22/logs/cloudaudit.googleapis.com%2Factivity
+    trace: null
+    span_id: null
+  - timestamp: '2026-03-23T16:08:04.748650762Z'
+    severity: ERROR
+    function: ssrsierrablusystem59b22
+    message: >-
+      {"@type":"type.googleapis.com/google.cloud.audit.AuditLog","status":{"code":3,"message":"Build
+      failed with status: FAILURE. Could not build the function due to a missing
+      permission on the build service account. If you didn't revoke that
+      permission explicitly, this could be caused by a change in the
+      organization policies. Please refer to the following documentation for
+      more details and resolution:
+      https://cloud.google.com/functions/docs/troubleshooting#build-service-account\n
+      You can also view the logs at
+      https://console.cloud.google.com/cloud-build/builds;region=us-central1/2671005d-6611-44be-bd51-8006a98a4fb5?project=894977812589.\n"},"authenticationInfo":{"principalEmail":"A.fawzy8866@gmail.com","principalSubject":"user:A.fawzy8866@gmail.com","oauthInfo":{"oauthClientId":"563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com"}},"requestMetadata":{"requestAttributes":{},"destinationAttributes":{}},"serviceName":"cloudfunctions.googleapis.com","methodName":"google.cloud.functions.v2.FunctionService.UpdateFunction","resourceName":"projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22","resourceLocation":{"currentLocations":["us-central1"]}}
+    payload:
+      '@type': type.googleapis.com/google.cloud.audit.AuditLog
+      status:
+        code: 3
+        message: >
+          Build failed with status: FAILURE. Could not build the function due to
+          a missing permission on the build service account. If you didn't
+          revoke that permission explicitly, this could be caused by a change in
+          the organization policies. Please refer to the following documentation
+          for more details and resolution:
+          https://cloud.google.com/functions/docs/troubleshooting#build-service-account
+           You can also view the logs at https://console.cloud.google.com/cloud-build/builds;region=us-central1/2671005d-6611-44be-bd51-8006a98a4fb5?project=894977812589.
+      authenticationInfo:
+        principalEmail: A.fawzy8866@gmail.com
+        principalSubject: 'user:A.fawzy8866@gmail.com'
+        oauthInfo:
+          oauthClientId: >-
+            563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com
+      requestMetadata:
+        requestAttributes: {}
+        destinationAttributes: {}
+      serviceName: cloudfunctions.googleapis.com
+      methodName: google.cloud.functions.v2.FunctionService.UpdateFunction
+      resourceName: >-
+        projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22
+      resourceLocation:
+        currentLocations:
+          - us-central1
+    log_name: projects/sierra-blu-system-59b22/logs/cloudaudit.googleapis.com%2Factivity
+    trace: null
+    span_id: null
+  - timestamp: '2026-03-24T08:25:37.852267948Z'
+    severity: NOTICE
+    function: ssrsierrablusystem59b22
+    message: >-
+      {"@type":"type.googleapis.com/google.cloud.audit.AuditLog","status":{},"authenticationInfo":{"principalEmail":"A.fawzy8866@gmail.com","principalSubject":"user:A.fawzy8866@gmail.com","oauthInfo":{"oauthClientId":"563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com"}},"requestMetadata":{"callerIp":"102.40.92.195","callerSuppliedUserAgent":"FirebaseCLI/15.11.0,gzip(gfe),gzip(gfe)","requestAttributes":{"time":"2026-03-24T08:25:36.810789259Z","auth":{}},"destinationAttributes":{}},"serviceName":"cloudfunctions.googleapis.com","methodName":"google.cloud.functions.v2.FunctionService.UpdateFunction","authorizationInfo":[{"resource":"projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22","permission":"cloudfunctions.functions.update","granted":true,"resourceAttributes":{"service":"cloudfunctions.googleapis.com","name":"projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22","type":"cloudfunctions.googleapis.com/Function"},"permissionType":"ADMIN_WRITE"}],"resourceName":"projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22","request":{"update_mask":{"paths":["name","build_config.runtime","build_config.entry_point","build_config.source.storage_source.bucket","build_config.source.storage_source.object","build_config.environment_variables","build_config.source_token","service_config.environment_variables","service_config.ingress_settings","service_config.timeout_seconds","service_config.service_account_email","service_config.available_memory","service_config.min_instance_count","service_config.max_instance_count","service_config.max_instance_request_concurrency","service_config.available_cpu","service_config.vpc_connector","service_config.vpc_connector_egress_settings","service_config.direct_vpc_network_interface","service_config.direct_vpc_egress","labels"]},"@type":"type.googleapis.com/google.cloud.functions.v2.UpdateFunctionRequest","function":{"build_config":{"source":{},"runtime":"nodejs24","entry_point":"ssrsierrablusystem59b22"},"service_config":{"available_cpu":"1","available_memory":"256Mi","max_instance_request_concurrency":80},"labels":{"firebase-functions-codebase":"firebase-frameworks-sierra-blu-system-59b22","firebase-functions-hash":"2cf02bbcf711f2a77b61016398b2c549acb20f9f","deployment-tool":"cli-firebase"},"name":"projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22"}},"response":{"@type":"type.googleapis.com/google.longrunning.Operation"},"resourceLocation":{"currentLocations":["us-central1"]}}
+    payload:
+      '@type': type.googleapis.com/google.cloud.audit.AuditLog
+      status: {}
+      authenticationInfo:
+        principalEmail: A.fawzy8866@gmail.com
+        principalSubject: 'user:A.fawzy8866@gmail.com'
+        oauthInfo:
+          oauthClientId: >-
+            563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com
+      requestMetadata:
+        callerIp: 102.40.92.195
+        callerSuppliedUserAgent: 'FirebaseCLI/15.11.0,gzip(gfe),gzip(gfe)'
+        requestAttributes:
+          time: '2026-03-24T08:25:36.810789259Z'
+          auth: {}
+        destinationAttributes: {}
+      serviceName: cloudfunctions.googleapis.com
+      methodName: google.cloud.functions.v2.FunctionService.UpdateFunction
+      authorizationInfo:
+        - resource: >-
+            projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22
+          permission: cloudfunctions.functions.update
+          granted: true
+          resourceAttributes:
+            service: cloudfunctions.googleapis.com
+            name: >-
+              projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22
+            type: cloudfunctions.googleapis.com/Function
+          permissionType: ADMIN_WRITE
+      resourceName: >-
+        projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22
+      request:
+        update_mask:
+          paths:
+            - name
+            - build_config.runtime
+            - build_config.entry_point
+            - build_config.source.storage_source.bucket
+            - build_config.source.storage_source.object
+            - build_config.environment_variables
+            - build_config.source_token
+            - service_config.environment_variables
+            - service_config.ingress_settings
+            - service_config.timeout_seconds
+            - service_config.service_account_email
+            - service_config.available_memory
+            - service_config.min_instance_count
+            - service_config.max_instance_count
+            - service_config.max_instance_request_concurrency
+            - service_config.available_cpu
+            - service_config.vpc_connector
+            - service_config.vpc_connector_egress_settings
+            - service_config.direct_vpc_network_interface
+            - service_config.direct_vpc_egress
+            - labels
+        '@type': type.googleapis.com/google.cloud.functions.v2.UpdateFunctionRequest
+        function:
+          build_config:
+            source: {}
+            runtime: nodejs24
+            entry_point: ssrsierrablusystem59b22
+          service_config:
+            available_cpu: '1'
+            available_memory: 256Mi
+            max_instance_request_concurrency: 80
+          labels:
+            firebase-functions-codebase: firebase-frameworks-sierra-blu-system-59b22
+            firebase-functions-hash: 2cf02bbcf711f2a77b61016398b2c549acb20f9f
+            deployment-tool: cli-firebase
+          name: >-
+            projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22
+      response:
+        '@type': type.googleapis.com/google.longrunning.Operation
+      resourceLocation:
+        currentLocations:
+          - us-central1
+    log_name: projects/sierra-blu-system-59b22/logs/cloudaudit.googleapis.com%2Factivity
+    trace: null
+    span_id: null
+  - timestamp: '2026-03-24T08:26:14.547953945Z'
+    severity: ERROR
+    function: ssrsierrablusystem59b22
+    message: >-
+      {"@type":"type.googleapis.com/google.cloud.audit.AuditLog","status":{"code":3,"message":"Build
+      failed with status: FAILURE. Could not build the function due to a missing
+      permission on the build service account. If you didn't revoke that
+      permission explicitly, this could be caused by a change in the
+      organization policies. Please refer to the following documentation for
+      more details and resolution:
+      https://cloud.google.com/functions/docs/troubleshooting#build-service-account\n
+      You can also view the logs at
+      https://console.cloud.google.com/cloud-build/builds;region=us-central1/344ab171-ef77-4221-be2d-aab1e09d60a1?project=894977812589.\n"},"authenticationInfo":{"principalEmail":"A.fawzy8866@gmail.com","principalSubject":"user:A.fawzy8866@gmail.com","oauthInfo":{"oauthClientId":"563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com"}},"requestMetadata":{"requestAttributes":{},"destinationAttributes":{}},"serviceName":"cloudfunctions.googleapis.com","methodName":"google.cloud.functions.v2.FunctionService.UpdateFunction","resourceName":"projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22","resourceLocation":{"currentLocations":["us-central1"]}}
+    payload:
+      '@type': type.googleapis.com/google.cloud.audit.AuditLog
+      status:
+        code: 3
+        message: >
+          Build failed with status: FAILURE. Could not build the function due to
+          a missing permission on the build service account. If you didn't
+          revoke that permission explicitly, this could be caused by a change in
+          the organization policies. Please refer to the following documentation
+          for more details and resolution:
+          https://cloud.google.com/functions/docs/troubleshooting#build-service-account
+           You can also view the logs at https://console.cloud.google.com/cloud-build/builds;region=us-central1/344ab171-ef77-4221-be2d-aab1e09d60a1?project=894977812589.
+      authenticationInfo:
+        principalEmail: A.fawzy8866@gmail.com
+        principalSubject: 'user:A.fawzy8866@gmail.com'
+        oauthInfo:
+          oauthClientId: >-
+            563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com
+      requestMetadata:
+        requestAttributes: {}
+        destinationAttributes: {}
+      serviceName: cloudfunctions.googleapis.com
+      methodName: google.cloud.functions.v2.FunctionService.UpdateFunction
+      resourceName: >-
+        projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22
+      resourceLocation:
+        currentLocations:
+          - us-central1
+    log_name: projects/sierra-blu-system-59b22/logs/cloudaudit.googleapis.com%2Factivity
+    trace: null
+    span_id: null
+  - timestamp: '2026-03-24T08:30:58.848433490Z'
+    severity: NOTICE
+    function: ssrsierrablusystem59b22
+    message: >-
+      {"@type":"type.googleapis.com/google.cloud.audit.AuditLog","status":{},"authenticationInfo":{"principalEmail":"A.fawzy8866@gmail.com","principalSubject":"user:A.fawzy8866@gmail.com","oauthInfo":{"oauthClientId":"563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com"}},"requestMetadata":{"callerIp":"102.40.92.195","callerSuppliedUserAgent":"FirebaseCLI/15.11.0,gzip(gfe),gzip(gfe)","requestAttributes":{"time":"2026-03-24T08:30:57.864592567Z","auth":{}},"destinationAttributes":{}},"serviceName":"cloudfunctions.googleapis.com","methodName":"google.cloud.functions.v2.FunctionService.UpdateFunction","authorizationInfo":[{"resource":"projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22","permission":"cloudfunctions.functions.update","granted":true,"resourceAttributes":{"service":"cloudfunctions.googleapis.com","name":"projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22","type":"cloudfunctions.googleapis.com/Function"},"permissionType":"ADMIN_WRITE"}],"resourceName":"projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22","request":{"@type":"type.googleapis.com/google.cloud.functions.v2.UpdateFunctionRequest","update_mask":{"paths":["name","build_config.runtime","build_config.entry_point","build_config.source.storage_source.bucket","build_config.source.storage_source.object","build_config.environment_variables","build_config.source_token","service_config.environment_variables","service_config.ingress_settings","service_config.timeout_seconds","service_config.service_account_email","service_config.available_memory","service_config.min_instance_count","service_config.max_instance_count","service_config.max_instance_request_concurrency","service_config.available_cpu","service_config.vpc_connector","service_config.vpc_connector_egress_settings","service_config.direct_vpc_network_interface","service_config.direct_vpc_egress","labels"]},"function":{"build_config":{"runtime":"nodejs24","source":{},"entry_point":"ssrsierrablusystem59b22"},"name":"projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22","labels":{"firebase-functions-hash":"fd090ea8cf3197dc7e718ac155acbb3a09e782d9","firebase-functions-codebase":"firebase-frameworks-sierra-blu-system-59b22","deployment-tool":"cli-firebase"},"service_config":{"available_memory":"256Mi","max_instance_request_concurrency":80,"available_cpu":"1"}}},"response":{"@type":"type.googleapis.com/google.longrunning.Operation"},"resourceLocation":{"currentLocations":["us-central1"]}}
+    payload:
+      '@type': type.googleapis.com/google.cloud.audit.AuditLog
+      status: {}
+      authenticationInfo:
+        principalEmail: A.fawzy8866@gmail.com
+        principalSubject: 'user:A.fawzy8866@gmail.com'
+        oauthInfo:
+          oauthClientId: >-
+            563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com
+      requestMetadata:
+        callerIp: 102.40.92.195
+        callerSuppliedUserAgent: 'FirebaseCLI/15.11.0,gzip(gfe),gzip(gfe)'
+        requestAttributes:
+          time: '2026-03-24T08:30:57.864592567Z'
+          auth: {}
+        destinationAttributes: {}
+      serviceName: cloudfunctions.googleapis.com
+      methodName: google.cloud.functions.v2.FunctionService.UpdateFunction
+      authorizationInfo:
+        - resource: >-
+            projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22
+          permission: cloudfunctions.functions.update
+          granted: true
+          resourceAttributes:
+            service: cloudfunctions.googleapis.com
+            name: >-
+              projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22
+            type: cloudfunctions.googleapis.com/Function
+          permissionType: ADMIN_WRITE
+      resourceName: >-
+        projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22
+      request:
+        '@type': type.googleapis.com/google.cloud.functions.v2.UpdateFunctionRequest
+        update_mask:
+          paths:
+            - name
+            - build_config.runtime
+            - build_config.entry_point
+            - build_config.source.storage_source.bucket
+            - build_config.source.storage_source.object
+            - build_config.environment_variables
+            - build_config.source_token
+            - service_config.environment_variables
+            - service_config.ingress_settings
+            - service_config.timeout_seconds
+            - service_config.service_account_email
+            - service_config.available_memory
+            - service_config.min_instance_count
+            - service_config.max_instance_count
+            - service_config.max_instance_request_concurrency
+            - service_config.available_cpu
+            - service_config.vpc_connector
+            - service_config.vpc_connector_egress_settings
+            - service_config.direct_vpc_network_interface
+            - service_config.direct_vpc_egress
+            - labels
+        function:
+          build_config:
+            runtime: nodejs24
+            source: {}
+            entry_point: ssrsierrablusystem59b22
+          name: >-
+            projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22
+          labels:
+            firebase-functions-hash: fd090ea8cf3197dc7e718ac155acbb3a09e782d9
+            firebase-functions-codebase: firebase-frameworks-sierra-blu-system-59b22
+            deployment-tool: cli-firebase
+          service_config:
+            available_memory: 256Mi
+            max_instance_request_concurrency: 80
+            available_cpu: '1'
+      response:
+        '@type': type.googleapis.com/google.longrunning.Operation
+      resourceLocation:
+        currentLocations:
+          - us-central1
+    log_name: projects/sierra-blu-system-59b22/logs/cloudaudit.googleapis.com%2Factivity
+    trace: null
+    span_id: null
+  - timestamp: '2026-03-24T08:31:32.855706570Z'
+    severity: ERROR
+    function: ssrsierrablusystem59b22
+    message: >-
+      {"@type":"type.googleapis.com/google.cloud.audit.AuditLog","status":{"code":3,"message":"Build
+      failed with status: FAILURE. Could not build the function due to a missing
+      permission on the build service account. If you didn't revoke that
+      permission explicitly, this could be caused by a change in the
+      organization policies. Please refer to the following documentation for
+      more details and resolution:
+      https://cloud.google.com/functions/docs/troubleshooting#build-service-account\n
+      You can also view the logs at
+      https://console.cloud.google.com/cloud-build/builds;region=us-central1/7f1e9bda-3f13-4933-a9b7-a7a4bcbbb98b?project=894977812589.\n"},"authenticationInfo":{"principalEmail":"A.fawzy8866@gmail.com","principalSubject":"user:A.fawzy8866@gmail.com","oauthInfo":{"oauthClientId":"563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com"}},"requestMetadata":{"requestAttributes":{},"destinationAttributes":{}},"serviceName":"cloudfunctions.googleapis.com","methodName":"google.cloud.functions.v2.FunctionService.UpdateFunction","resourceName":"projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22","resourceLocation":{"currentLocations":["us-central1"]}}
+    payload:
+      '@type': type.googleapis.com/google.cloud.audit.AuditLog
+      status:
+        code: 3
+        message: >
+          Build failed with status: FAILURE. Could not build the function due to
+          a missing permission on the build service account. If you didn't
+          revoke that permission explicitly, this could be caused by a change in
+          the organization policies. Please refer to the following documentation
+          for more details and resolution:
+          https://cloud.google.com/functions/docs/troubleshooting#build-service-account
+           You can also view the logs at https://console.cloud.google.com/cloud-build/builds;region=us-central1/7f1e9bda-3f13-4933-a9b7-a7a4bcbbb98b?project=894977812589.
+      authenticationInfo:
+        principalEmail: A.fawzy8866@gmail.com
+        principalSubject: 'user:A.fawzy8866@gmail.com'
+        oauthInfo:
+          oauthClientId: >-
+            563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com
+      requestMetadata:
+        requestAttributes: {}
+        destinationAttributes: {}
+      serviceName: cloudfunctions.googleapis.com
+      methodName: google.cloud.functions.v2.FunctionService.UpdateFunction
+      resourceName: >-
+        projects/sierra-blu-system-59b22/locations/us-central1/functions/ssrsierrablusystem59b22
+      resourceLocation:
+        currentLocations:
+          - us-central1
+    log_name: projects/sierra-blu-system-59b22/logs/cloudaudit.googleapis.com%2Factivity
+    trace: null
+    span_id: null
+next_page_token: >-
+  epEBCowBAZ4jIFQDS0r_0OO8ANG7lgUCSSGwUpNhkv0wNE-EZUF1_sKzVtYJlc7bKmU1-vJz-gX3dU4tgkcYQrNBWDAGs2smDoC7XNXGGM09jhsDgWPKb7JRAN2cbLFB0LxiojtyBi36wt_oEGsTSoltWOSe4rhBWmRn5Hbplj8Iu8XlNXYSWOkfuxwv65EXHe8QAA
+has_more: true
